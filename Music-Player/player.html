@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Music-Player</title>
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/jquery.mCustomScrollbar.css">
+  <link rel="stylesheet" href="css/page-index.css">
+  <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+  <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+  <script src="js/functions.js"></script>
+  <script src="js/player.js"></script>
+  <script src="js/lyric.js"></script>
+  <script src="js/progress.js"></script>
+  <script src="js/index.js"></script>
+</head>
+<body>
+  <header class="ht clearfix" >
+    <a class="player-logo" href="#" target="_blank"></a>
+    <div class="user-operate">
+      <span>QQ音乐，千万高品质曲库尽享</span>
+      <a class="user-download">PC版下载</a>
+      <a class="user-info">张三</a>
+      <a class="user-setting">设置</a>
+      <a class="user-exit">退出</a>
+    </div>
+  </header>
+  <main class="mp">
+    <article>
+      <div class="menu-operate">
+        <a href="javascript:;"><i></i>收藏</a>
+        <a href="javascript:;"><i></i>添加到</a>
+        <a href="javascript:;"><i></i>下载</a>
+        <a href="javascript:;"><i></i>删除</a>
+        <a href="javascript:;"><i></i>清空列表</a>
+      </div>
+      <ul class="menu-box mCustomScrollbar" data-mcs-theme="minimal-dark">
+        <li class="menu-header">
+          <div class="song-check"><i></i></div>
+          <div class="song-index"></div>
+          <div class="song-name">歌曲</div>
+          <div class="song-singer">歌手</div>
+          <div class="song-duration">时长</div>
+        </li>
+      </ul>
+      <audio src=""></audio>
+    </article>
+    <aside>
+      <ul class="playing-info">
+        <li class="playing-info-bg">
+          <a class="playing-info-poster" href="javascript:;"></a>
+        </li>
+        <li class="playing-info-name">
+          <span>歌曲名:</span>
+          <a href="javascript:;">爱我中华</a>
+        </li>
+        <li class="playing-info-singer">
+          <span>歌手名: </span>
+          <a href="javascript:;">中华人民</a>
+        </li>
+        <li class="playing-info-album">
+          <span>专辑名:</span>
+          <a href="javascript:;">爱我中华系列</a>
+        </li>
+      </ul>
+      <div class="playing-lyric-box">
+        <div class="playing-lyric">
+        </div>
+      </div>
+      <a class="playing-trans" href="javascript:;">译</a>
+    </aside>
+  </main>
+  <footer class="mp">
+    <article>
+      <div class="playing-change">
+        <a class="playing-pre" href="javascript:;" title="上一首"></a>
+        <a class="playing-pause" href="javascript:;" title="播放/暂停"></a>
+        <a class="playing-next" href="javascript:;" title="下一首"></a>
+      </div>
+      <div class="playing-progress">
+        <div class="playing-msg">
+          <a class="playing-name" href="javascript:;">歌曲名</a> <span>-</span>
+          <a class="playing-singer" href="javascript:;">歌手名</a>
+        </div>
+        <div class="playing-time">
+          <span class="playing-current">00:00</span> /
+          <span class="playing-duration">03:49</span>
+        </div>
+        <div class="playing-progress-bar">
+          <div class="playing-progress-track">
+            <div class="playing-progress-ball"></div>
+          </div>
+        </div>
+      </div>
+    </article>
+    <aside>
+      <div class="playing-operate">
+        <a href="javascript:;" title="循环"></a>
+        <a href="javascript:;" title="喜欢"></a>
+        <a class="operate-download" href="javascript:;" title="下载"></a>
+        <a href="javascript:;" title="评论"></a>
+        <a href="javascript:;" title="纯净"></a>
+        <a class="playing-operate-volume" href="javascript:;" title="音量"></a>
+        <div class="playing-volume-bar">
+          <div class="playing-volume-track">
+            <div class="playing-volume-ball"></div>
+          </div>
+        </div>
+      </div>
+    </aside>
+  </footer>
+  <div class="player-mask"></div>
+  <div class="player-mask-bg"></div>
+</body>
+</html>
