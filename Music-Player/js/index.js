@@ -1,24 +1,20 @@
 $(function () {
-  // 0 使用jQuery滚动条插件
-  $(".menu-container").mCustomScrollbar();
-
+  // 0 变量声明
   var $audio = $("audio");
-  var audio = $audio.get(0);
-
-  var progress = new Progress($audio);
-  var $progressBar = $(".playing-progress-bar");
-  var $progressSpan = $(".playing-current");
-  progress.start($progressBar, $progressSpan, function (){
-    changeMusic(player.playingIndex + 1);
-  });
-
   var player = new Player($audio);
-  var $volumeBar = $(".playing-volume-bar");
-  changeVolume(player.playingVolume * $volumeBar.width());
 
-  var lyric = new Lyric();
   var $lyricContainer = $(".playing-lyric");
+  var lyric = new Lyric();
 
+  var $timeBar = $(".playing-progress-bar");
+  var timeProgress = new Progress($timeBar);
+
+  var $volumeBar = $(".playing-volume-bar");
+  var volumeProgress = new Progress($volumeBar);
+  // 初始化声音进度条长度
+  volumeProgress.setProgress(player.playingVolume * $volumeBar.width());
+  // 使用jQuery滚动条插件
+  $(".menu-container").mCustomScrollbar();
 
   // 1 加载歌曲列表
   getPlayerList();
@@ -81,7 +77,7 @@ $(function () {
     // 3.监听子菜单播放/暂停按钮的点击
     $menu.delegate(".operate-play", "click",function () {
       var itemIndex = $(this).parents(".menu-item").index();
-      changeMusic(itemIndex - 1);// index()是从1开始
+      changeMusic(itemIndex - 1);// lyricIndex()是从1开始
     });
 
     // 4.监听子菜单删除按钮的点击
@@ -89,13 +85,15 @@ $(function () {
       var musicIndex = $(this).parents(".menu-item").index() - 1;
       // 4.1样式上移除
       $(this).parents(".menu-item").remove();
-      //    更新索引
+       //    更新索引
       $.each($(".menu-item"), function (i, v) {
-        $(v).find(".song-index span").text(i+1);
+        $(v).find(".song-index span").text(i + 1);
       });
       // 4.2逻辑上移除
-      player.removeMusic(musicIndex, function () {
-        changeMusic(musicIndex);
+      player.removeMusic(musicIndex, function (playingIndex) {
+        if(musicIndex === playingIndex){
+          changeMusic(musicIndex);
+        }
       });
     });
 
@@ -114,74 +112,59 @@ $(function () {
       changeMusic(player.playingIndex + 1);
     });
 
-    // 8.监听进度条的点击
-    // 为什么采用mousedown而非click: bar的click事件会被ball的mousedown冒泡触发且较难阻止
-    $(".playing-progress-bar").mousedown(function (e) {
-      progress.move($progressBar, e.offsetX);
+    //8.监听播放进行事件
+    player.timeUpdate(function (currentTime, duration) {
+      // 8.1时间进度条同步
+      if(!timeProgress.moving){
+        timeProgress.setProgress(currentTime / duration * 100 + "%");
+      }
+      var $timeSpan = $(".playing-current");
+      $timeSpan.text(parseTime(currentTime));
+
+      // 8.2歌词同步
+      var lyricIndex = lyric.locateLyric(currentTime);
+      if(lyricIndex < 0) return;
+      var $curLyric = $lyricContainer.children().eq(lyricIndex);
+      var curLyric = $lyricContainer.children().get(lyricIndex);
+      $lyricContainer.children().removeClass("playing-lyric-this");
+      $curLyric.addClass("playing-lyric-this");
+      var boxHeight = $(".playing-lyric-box").height();
+      var top = - curLyric.offsetTop + boxHeight / 2 - curLyric.clientHeight / 2;
+      if(top > 0) return;
+      $lyricContainer.css({top: top});
+      // 哔了狗了，为啥animate方法一直类型报错
+      // $lyricContainer.stop().animate({top: top}, 100);
+
+      // 8.3播完自动切换下一首
+      if(currentTime >= duration){
+        changeMusic(player.playingIndex + 1);
+      }
     });
 
-    // 9.监听进度条的拖动
-    $(".playing-progress-ball").mousedown(function (e) {
-      progress.setMoving(true);
-      var beginP = e.pageX;
-      var origin = $(".playing-progress-track").width();
-      var target, whole = $progressBar.width();
-      //阻止冒泡触发bar的mousedown事件
-      e.stopPropagation();
-      $("body").mousemove(function (e) {
-        var moveP = e.pageX;
-        var expand = moveP - beginP;
-        if(origin + expand > whole){
-          target = whole;
-        }else if(origin + expand < 0){
-          target = 0;
-        }else{
-          target = origin + expand;
-        }
-        progress.move($progressBar, target, true);
-      });
-      $("body").mouseup(function () {
-        $("body").off("mousemove mouseup");
-        progress.move($progressBar, target);
-        progress.setMoving(false);
-      });
+    // 9.初始化歌曲进度条事件
+    timeProgress.start(function () {
+      var length = $(".playing-progress-bar .progress-track").width();
+      player.musicSeekTo(length / $timeBar.width());
     });
 
     // 10.监听声音图标的点击
     $(".playing-operate-volume").click(function () {
-      changeVolume();
+      player.volumeSeekTo();
     });
 
-    // 11.监听声音进度条的点击
-    $(".playing-volume-bar").mousedown(function (e) {
-      changeVolume(e.offsetX);
-    });
+    // 11.初始化声音进度条事件
+    volumeProgress.start(function () {
+      var length = $(".playing-volume-bar .progress-track").width();
+      player.volumeSeekTo( length / $volumeBar.width());
+    }, true);
 
-    // 12.监听声音进度条的拖动
-    $(".playing-volume-ball").mousedown(function (e) {
-      var beginP = e.pageX;
-      var origin = $(".playing-volume-track").width();
-      var target, whole = $(".playing-volume-bar").width();
-      e.stopPropagation();
-      $("body").mousemove(function (e) {
-        var moveP = e.pageX;
-        var expand = moveP - beginP;
-        if(origin + expand > whole){
-          target = whole;
-        }else if(origin + expand < 0){
-          target = 0;
-        }else{
-          target = origin + expand;
-        }
-        changeVolume(target);
-      });
-      $("body").mouseup(function () {
-        $("body").off("mousemove mouseup");
-      });
+    // 12.监听列表操作的删除按钮事件
+    $(".menu-operate-delete").click(function () {
+      deleteMusic($(".menu-item.menu-checked"));
     });
   }
 
-  // 切换歌曲的方法
+  // 3 定义切换歌曲的方法
   function changeMusic(index) {
     //切换当前播放曲目
     player.playMusic(index);
@@ -214,12 +197,12 @@ $(function () {
     $(".playing-singer").text(singer);
     $(".playing-duration").text(time);
 
-    // 4.侧边显示当前播放曲目歌词等
+    // 4.侧边显示当前播放曲目歌词信息等
     $(".playing-info-poster").css({backgroundImage: "url("+ cover +")"});
     $(".playing-info-name a").text(name);
     $(".playing-info-singer a").text(singer);
     $(".playing-info-album a").text(album);
-    lyric.loadLyric(lyricUrl, function (timeArr, lyricArr) {
+    lyric.loadLyric(lyricUrl, function (lyricArr) {
       //清空上一首歌的歌词
       $lyricContainer.html("");
       //载入当前播放歌曲的歌词
@@ -227,46 +210,60 @@ $(function () {
         var $item = $("<p>"+ v +"</p>");
         $lyricContainer.append($item);
       });
-      //高亮当前播放句
-      var index = -1;
-      player.playUpdate(function (currentTime) {
-        if(currentTime >= timeArr[0]){
-          index ++;
-          timeArr.shift();
-        }
-        $lyricContainer.children().removeClass("playing-lyric-this");
-        $lyricContainer.children().eq(index).addClass("playing-lyric-this");
-        if(index <= 2) return;
-        var boxHeight = $(".playing-lyric-box").height();
-        var top = $lyricContainer.children().get(index).offsetTop;
-        var height = $lyricContainer.children().get(index).clientHeight;
-        $lyricContainer.animate({top: - top + boxHeight / 2 - height / 2}, 100);
-      });
     });
 
     // 5.切换页面背景
     $(".player-mask").css({backgroundImage: "url("+ cover +")"});
   }
-
-  // 调节音量的方法
-  function changeVolume(length) {
-    if(isNull(length)){
-      // 静音按钮
-      audio.volume = audio.volume > 0 ? 0 : player.playingVolume;
-      if(audio.volume !== 0){
-        player.setPlayingVolume(audio.volume);
+  
+  // 4 定义删除歌曲的方法
+  function deleteMusic($items) {
+    var indexs = [];
+    $.each($items, function (i, v) {
+      indexs.push($(v).index() - 1);
+    });
+    player.removeMusic(indexs, function (playingIndex) {
+      if(indexs.indexOf(playingIndex) > 0){
+        changeMusic(indexs[indexs.length - 1] + 1);
       }
-    }else{
-      // 滑块调节
-      $(".playing-volume-track").width(length);
-      audio.volume = length / $volumeBar.width();
-      player.setPlayingVolume(audio.volume);
-    }
+    });
 
-    if(audio.volume === 0){
-      $(".playing-operate-volume").addClass("playing-operate-quiet");
-    }else{
-      $(".playing-operate-volume").removeClass("playing-operate-quiet");
-    }
+    // 4.1样式上移除
+    $items.remove();
+    //    更新索引
+    $.each($(".menu-item"), function (i, v) {
+      $(v).find(".song-index span").text(i + 1);
+    });
+    // 4.2逻辑上移除
+    // player.removeMusic(musicIndex, function (playingIndex) {
+    //   if(musicIndex === playingIndex){
+    //     changeMusic(musicIndex);
+    //   }
+    // });
+  }
+
+  // 4 定义创建音乐条目的方法
+  function createMusicItem(i, v) {
+    var $item = $("<li class=\"menu-item\">\n" +
+      "          <div class=\"song-check\"><i></i></div>\n" +
+      "          <div class=\"song-index\"><span>"+ (i+1) +"</span></div>\n" +
+      "          <div class=\"song-name\">\n" +
+      "            <span title=\"歌曲\">"+ v.name +"</span>\n" +
+      "            <div class=\"song-operate\">\n" +
+      "              <a class=\"operate-play\" href=\"javascript:;\" title=\"播放\"></a>\n" +
+      "              <a class=\"operate-add\" href=\"javascript:;\" title=\"添加到歌单\"></a>\n" +
+      "              <a class=\"operate-download\" href=\"javascript:;\" title=\"下载\"></a>\n" +
+      "              <a class=\"operate-share\" href=\"javascript:;\" title=\"分享\"></a>\n" +
+      "            </div>\n" +
+      "          </div>\n" +
+      "          <div class=\"song-singer\">\n" +
+      "            <a href=\"javascript:;\" title=\"歌手\">"+ v.singer +"</a>\n" +
+      "          </div>\n" +
+      "          <div class=\"song-duration\">\n" +
+      "            <span>"+ v.time +"</span>\n" +
+      "            <a class=\"operate-delete\" href=\"javascript:;\" title=\"删除\"></a>\n" +
+      "          </div>\n" +
+      "        </li>");
+    return $item;
   }
 });

@@ -383,15 +383,13 @@ article .playing-progress{
     cursor: pointer;
     position: relative;
 }
-.playing-progress-bar .playing-progress-track,
-.playing-volume-bar .playing-volume-track{
+.progress-bar .progress-track{
     width: 0;
     height: 100%;
     background: #ccc;
     position: relative;
 }
-.playing-progress-track .playing-progress-ball,
-.playing-volume-track .playing-volume-ball{
+.progress-bar .progress-ball{
     width: 10px;
     height: 10px;
     background: #ccc;

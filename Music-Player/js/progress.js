@@ -1,42 +1,67 @@
 (function (window) {
-  function Progress($audio) {
-    return new Progress.prototype.init($audio);
+  function Progress($bar) {
+    return new Progress.prototype.init($bar);
   }
   Progress.prototype = {
     constructor: Progress,
     moving: false,
-    init: function ($audio) {
-      this.$audio = $audio;
-      this.audio = $audio.get(0);
+    progress: 0,
+    init: function ($bar) {
+      this.$bar = $bar;
     },
     setMoving: function (bol){
       this.moving = bol;
     },
-    // 进度条开始
-    //  start参数：进度条对象；[盛放当前播放时间的容器对象]；[播放结束的回调函数]
-    start: function ($bar, $span, callback) {
-      var _this = this;
-      this.audio.ontimeupdate = function () {
-        // 如果没有在手动移动进度条,就让它随音乐移动
-        if(!_this.moving){
-          $bar.children().width(this.currentTime / this.duration * 100 + "%");
-        }
-        //显示当前播放时间
-        $span && $span.text(parseTime(this.currentTime));
-      };
-      // 进度条结束要做的事情
-      this.audio.onended = function () {
-        callback && callback();
-      }
+    // 进度条设置
+    setProgress: function (length) {
+      this.$bar.find(".progress-track").width(length);
     },
-    // 进度跳转
-    //  move参数: 进度条对象；要修改的目标长度；[是否边改边播]
-    //  默认修改进度条的同时修改播放进度,playMaintain为true则保持原歌曲播放进度
-    move: function ($bar, length, playMaintain) {
-      $bar.children().width(length);
-      if(playMaintain) return;
-      var ratio = length / $bar.width();
-      this.audio.currentTime = this.audio.duration * ratio;
+    // 进度条开始
+    start: function (callback , bol) {
+      this.click(callback);
+      this.move(callback, bol);
+    },
+    // 进度条点击
+    click: function (callback){
+      var _this = this;
+      // 为什么采用mousedown而非click:
+      // bar的click事件会被ball的mousedown冒泡触发且较难阻止
+      this.$bar.mousedown(function (e) {
+        _this.setProgress(e.offsetX);
+        callback && callback();
+      });
+    },
+    // 进度条拖动
+    // bol: 是否在拖动过程中触发
+    move: function (callback, bol) {
+      var _this = this;
+      this.$bar.find(".progress-ball").mousedown(function (e) {
+        _this.setMoving(true);
+        var beginP = e.pageX;
+        var origin = _this.$bar.find(".progress-track").width();
+        var target, whole = _this.$bar.width();
+        e.stopPropagation();
+        $("body").mousemove(function (e) {
+          var moveP = e.pageX;
+          var expand = moveP - beginP;
+          if(origin + expand > whole){
+            target = whole;
+          }else if(origin + expand < 0){
+            target = 0;
+          }else{
+            target = origin + expand;
+          }
+          _this.setProgress(target);
+          //拖动中要做的操作
+          bol && callback && callback();
+        });
+        $("body").mouseup(function () {
+          $("body").off("mousemove mouseup");
+          //拖动后要做的操作
+          callback && callback();
+          _this.setMoving(false);
+        });
+      });
     }
   };
   Progress.prototype.init.prototype = Progress.prototype;
