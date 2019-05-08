@@ -256,7 +256,7 @@ main .menu-box{
     opacity: 0.7;
 }
 .song-operate a,
-.song-duration a[class=operate-delete]{
+.song-duration a[class = operate-delete]{
     opacity: 0.3;
 }
 .menu-box a:hover,
@@ -287,7 +287,7 @@ main .menu-box{
     background: url("../img/cat.jpg") no-repeat;
     background-size: cover;
 }
-.playing-lyric-box{
+aside .playing-lyric-box{
     position: absolute;
     bottom: 50px;
     width: 100%;
@@ -440,10 +440,13 @@ article .playing-progress{
     height: 24px;
     background-position: 0 -400px;
 }
-.playing-operate a:nth-child(5){
+.playing-operate .playing-operate-only{
     width: 75px;
     height: 26px;
     background-position: 0 -282px;
+}
+.playing-operate .playing-only-on{
+    background-position: 0 -311px;
 }
 .playing-operate .playing-operate-volume{
     width: 25px;
@@ -472,4 +475,19 @@ article .playing-progress{
 .playing-change a:hover,
 .playing-operate a:hover{
     opacity: 1;
+}
+
+/*纯净模式*/
+.only-on{
+    display: none;
+    background: #777777;
+    align-items: center;
+    justify-content: center;
+}
+.only-on .playing-lyric-box{
+    height: 60%;
+    width: 100%;
+    cursor: grab;
+    overflow: hidden;
+    position: relative;
 }

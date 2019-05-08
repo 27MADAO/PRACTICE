@@ -6,11 +6,11 @@
     constructor: Player, // ?
     audio: null, //播放器
     musicList: [], //播放列表
-    modeList: ["circulate", "random", "one"], //播放模式列表
+    modeList: [], //播放模式列表
     playing: false, //播放状态
     playingVolume: null, //播放的音量
     playingIndex: null, //当前播放曲目
-    playingMode: this.modeList[0], //当前播放模式
+    playingMode: null, //当前播放模式
     init: function ($audio) {
       this.$audio = $audio;
       this.audio = $audio.get(0);
@@ -18,6 +18,9 @@
     },
     setMusicList: function (musicList) {
       this.musicList = musicList;
+    },
+    setModeList: function (modeList){
+      this.modeList = modeList;
     },
     setPlaying: function (bol){
       this.playing = bol;

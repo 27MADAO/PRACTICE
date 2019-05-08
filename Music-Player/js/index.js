@@ -2,6 +2,8 @@ $(function () {
   // 0 变量声明
   var $audio = $("audio");
   var player = new Player($audio);
+  player.setModeList(["circulate", "random", "one"]);
+  player.setPlayingMode(player.modeList[0]);
 
   var $lyricContainer = $(".playing-lyric");
   var lyric = new Lyric();
@@ -122,8 +124,8 @@ $(function () {
       // 8.2歌词同步
       var lyricIndex = lyric.locateLyric(currentTime);
       if(lyricIndex < 0) return;
-      var $curLyric = $lyricContainer.children().eq(lyricIndex);
       $lyricContainer.children().removeClass("playing-lyric-this");
+      var $curLyric = $lyricContainer.children().eq(lyricIndex);
       $curLyric.addClass("playing-lyric-this");
       var boxHeight = $(".playing-lyric-box").height();
       var top = - $curLyric[0].offsetTop + boxHeight / 2 - $curLyric[0].clientHeight / 2;
@@ -134,16 +136,14 @@ $(function () {
 
       // 8.3播完后根据播放模式切换下一首
       if(currentTime >= duration){
-        var reg = /playing-mode-([a-z]*)/;
-        var $playMode = $(".playing-operate-mode");
-        var curMode = reg.exec($playMode.attr("class"));
         var nextIndex = {
           circulate: player.playingIndex + 1,
-          random: Math.floor(Math.random() * player.musicList.length),
+          random: getRandomNext(),
           one: player.playingIndex,
         };
-        curMode[1] === "one" && player.setPlayingIndex(-1);
-        changeMusic(nextIndex[curMode[1]]);
+        var musicIndex = nextIndex[player.playingMode];
+        musicIndex === player.playingIndex && player.setPlayingIndex(-1);
+        changeMusic(musicIndex);
       }
     });
 
@@ -155,13 +155,24 @@ $(function () {
 
     // 8.监听底部菜单的播放模式按钮点击事件
     $(".playing-operate-mode").click(function () {
-      var modes = ["playing-mode-circulate", "playing-mode-one", "playing-mode-random"];
-      var reg = /playing-mode-[a-z]*/;
-      var curMode = reg.exec($(this).attr("class"));
-      var next = (modes.indexOf(curMode[0]) + 1) % modes.length;
-      $(this).toggleClass(curMode[0] + " " + modes[next]);
+      player.changeMode();
+      var className = "playing-operate-mode playing-mode-" + player.playingMode;
+      $(this).attr("class", className);
     });
+
     // 10.监听底部菜单的纯净模式按钮点击事件
+    $(".playing-operate-only").click(function () {
+      $(this).toggleClass("playing-only-on playing-only-off");
+      if($(this).hasClass("playing-only-on")){
+        $(".only-on").css({display: "flex"});
+        $(".only-off").css({display: "none"});
+      }else{
+        $(".only-on").css({display: "none"});
+        $(".only-off").css({display: "block"});
+      }
+      // 页面切换后重新获取一遍歌词容器
+      $lyricContainer = $(".playing-lyric");
+    });
 
     // 10.监听底部菜单的静音按钮点击事件
     $(".playing-operate-volume").click(function () {
@@ -265,18 +276,12 @@ $(function () {
     return $item;
   }
 
-  // 获取当前播放模式的方法
-
-  // 获取相应播放模式的下一首歌曲索引的方法
-  function indexWithMode() {
-    var reg = /playing-mode-([a-z]*)/;
-    var $playMode = $(".playing-operate-mode");
-    var curMode = reg.exec($playMode.attr("class"));
-    var nextIndex = {
-      circulate: player.playingIndex + 1,
-      random: Math.floor(Math.random() * player.musicList.length),
-      one: player.playingIndex,
-    };
-    return nextIndex[curMode[1]];
+  // 获取随机模式下一首歌曲的索引，不可为当前播放歌曲的索引
+  function getRandomNext() {
+    var randomNext = Math.floor(Math.random() * player.musicList.length);
+    if(randomNext === player.playingIndex){
+      randomNext = getRandomNext();
+    }
+    return randomNext;
   }
 });
