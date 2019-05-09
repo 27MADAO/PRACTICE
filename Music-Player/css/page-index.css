@@ -291,7 +291,7 @@ aside .playing-lyric-box{
     position: absolute;
     bottom: 50px;
     width: 100%;
-    height: 170px;
+    height: 180px;
     overflow: hidden;
     cursor: grab;
 }
@@ -315,6 +315,10 @@ main aside a,
 .playing-info span,
 .playing-lyric-box p{
     opacity: 0.65;
+}
+.playing-lyric-box p{
+    line-height: 1.5em;
+    margin-bottom: 1.2em;
 }
 .playing-lyric-box p[class = playing-lyric-this]{
     color: #419361;
@@ -480,14 +484,14 @@ article .playing-progress{
 /*纯净模式*/
 .only-on{
     display: none;
-    background: #777777;
     align-items: center;
     justify-content: center;
 }
 .only-on .playing-lyric-box{
-    height: 60%;
+    height: 320px;
     width: 100%;
     cursor: grab;
     overflow: hidden;
     position: relative;
+    font-size: 26px;
 }

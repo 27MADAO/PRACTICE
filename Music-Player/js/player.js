@@ -36,10 +36,10 @@
     },
 
     // 根据索引播放音乐
-    playMusic: function (musicIndex, bol) {
+    playMusic: function (musicIndex) {
       //处理上一首/下一首传来的musicIndex
-      musicIndex = (musicIndex + this.musicList.length ) % this.musicList.length;
-      if(this.playingIndex === musicIndex && !bol){
+      musicIndex = this.musicList.length ? (musicIndex + this.musicList.length) % this.musicList.length : -1;
+      if(this.playingIndex === musicIndex){
         if(this.audio.paused){
           this.audio.play();
         }else{
@@ -57,6 +57,12 @@
     removeMusic: function (musicIndex, callback) {
       //包装成数组处理
       var indexArr = musicIndex instanceof Array ? musicIndex : [musicIndex];
+
+      //如果要全部删除就终止当前播放
+      if(indexArr.length === this.musicList.length){
+        this.playMusic(this.playingIndex);
+      }
+
       var playingIndex = this.playingIndex;
       if(indexArr.indexOf(playingIndex) > -1){
         this.setPlayingIndex(indexArr[0] - 1);

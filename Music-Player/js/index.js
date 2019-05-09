@@ -74,6 +74,7 @@ $(function () {
     // 3.监听列表操作的清空按钮点击事件
     $(".menu-operate-clean").click(function () {
       deleteMusic($(".menu-item"));
+      initPage();
     });
 
     // 1.监听歌曲列表的鼠标移入移出事件
@@ -124,12 +125,14 @@ $(function () {
       // 8.2歌词同步
       var lyricIndex = lyric.locateLyric(currentTime);
       if(lyricIndex < 0) return;
+      //   高亮当前歌词
       $lyricContainer.children().removeClass("playing-lyric-this");
       var $curLyric = $lyricContainer.children().eq(lyricIndex);
       $curLyric.addClass("playing-lyric-this");
-      var boxHeight = $(".playing-lyric-box").height();
+      //   定位当前歌词
+      var boxHeight = $lyricContainer.parent().height();
+      if($curLyric[0].offsetTop <= boxHeight / 2) return;
       var top = - $curLyric[0].offsetTop + boxHeight / 2 - $curLyric[0].clientHeight / 2;
-      if(top > 0) return;
       $lyricContainer.css({top: top});
       // 哔了狗，为啥animate方法一直类型报错, 暂时没查出来原因
       // $lyricContainer.stop().animate({top: top}, 100);
@@ -166,12 +169,12 @@ $(function () {
       if($(this).hasClass("playing-only-on")){
         $(".only-on").css({display: "flex"});
         $(".only-off").css({display: "none"});
+        $lyricContainer = $(".only-on .playing-lyric");
       }else{
         $(".only-on").css({display: "none"});
         $(".only-off").css({display: "block"});
+        $lyricContainer = $(".only-off .playing-lyric");
       }
-      // 页面切换后重新获取一遍歌词容器
-      $lyricContainer = $(".playing-lyric");
     });
 
     // 10.监听底部菜单的静音按钮点击事件
@@ -188,7 +191,6 @@ $(function () {
 
   // 3 定义切换歌曲的方法
   function changeMusic(index) {
-    // if(!player.musicList.length) return;
     //切换当前播放曲目
     player.playMusic(index);
 
@@ -207,6 +209,7 @@ $(function () {
 
     // 3.底部显示当前播放曲目信息等
     var music = player.musicList[player.playingIndex];
+
     $(".playing-name").text(music.name);
     $(".playing-singer").text(music.singer);
     $(".playing-duration").text(music.time);
@@ -245,6 +248,7 @@ $(function () {
     });
     // 4.4逻辑上移除
     player.removeMusic(indexArr, function (playingIndex) {
+      //否则，如果当前的被删了就播放其后那首
       if(indexArr.indexOf(playingIndex) > -1){
         changeMusic(player.playingIndex + 1);
       }
@@ -283,5 +287,31 @@ $(function () {
       randomNext = getRandomNext();
     }
     return randomNext;
+  }
+
+  // 清除所有页面展示
+  function initPage() {
+    // 复原底部按钮
+    $(".playing-pause").removeClass("playing-play");
+
+    // 1.清除底部的歌曲
+    $(".playing-name").html("^");
+    $(".playing-singer").html("^");
+    $(".playing-duration").html("^");
+
+    // 2.侧边专辑封面恢复默认图片
+    $(".playing-info-poster").css({backgroundImage: "url(\"./img/cat.jpg\")"});
+
+    // 4.清空侧边的歌曲信息
+    $(".playing-info-name a").html("^");
+    $(".playing-info-singer a").html("^");
+    $(".playing-info-album a").html("^");
+    $lyricContainer.html("");
+
+    // 4.隐藏不含内容的元素
+    $("a:contains('^'), span:contains('^')").parent().css({display: "none"});
+
+    // 5.页面背景恢复默认
+    $(".player-mask").css({backgroundImage: "url(\"./img/cat.jpg\")"});
   }
 });
