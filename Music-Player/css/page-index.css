@@ -150,7 +150,7 @@ main .menu-operate{
 main .menu-box{
     height: 500px;
     width: 100%;
-    overflow: auto;
+    /*overflow: auto;*/
 }
 .menu-box li{
     height: 55px;

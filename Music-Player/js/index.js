@@ -26,11 +26,12 @@ $(function () {
       dataType: "json",
       success: function (data) {
         // 遍历数据，创建音乐列表
-        //  添加的jQuery滚动条插件为ul向内多包裹了一层div
-        var $menuContainer = $(".menu-box #mCSB_1_container");
+
         $.each(data, function (i, v) {
           player.setMusicList(data);
           var $menuItem = createMusicItem(i, v);
+          // 添加的jQuery滚动条插件为歌曲列表的ul向内多包裹了一层div
+          var $menuContainer = $(".menu-box #mCSB_1_container");
           $menuContainer.append($menuItem);
         });
         changeMusic(0);
@@ -121,6 +122,23 @@ $(function () {
       }
       var $timeSpan = $(".playing-current");
       $timeSpan.text(parseTime(currentTime));
+
+      // 8.3使当前播放的歌曲滚动到可见区域
+
+      var $menuContainer = $(".menu-box #mCSB_1_container");
+      var borderTop = - $menuContainer[0].offsetTop;
+      var borderBottom = borderTop + $(".menu-box")[0].clientHeight;
+      var $playingItem = $(".menu-playing");
+      var itemPosition = $playingItem[0].offsetTop;
+      if(itemPosition < borderTop){
+        console.log("在上面呢");
+        //scrollTop -= (borderTop - itemPosition)
+      }else if(itemPosition > borderBottom){
+        console.log("在下面呢");
+        //scrollTop += (itemPosition + $playingItem[0].clientHeight - borderBottom)
+      }else{
+        console.log("可见");
+      }
 
       // 8.2歌词同步
       var lyricIndex = lyric.locateLyric(currentTime);
@@ -248,7 +266,6 @@ $(function () {
     });
     // 4.4逻辑上移除
     player.removeMusic(indexArr, function (playingIndex) {
-      //否则，如果当前的被删了就播放其后那首
       if(indexArr.indexOf(playingIndex) > -1){
         changeMusic(player.playingIndex + 1);
       }
