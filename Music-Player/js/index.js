@@ -75,7 +75,6 @@ $(function () {
     // 3.监听列表操作的清空按钮点击事件
     $(".menu-operate-clean").click(function () {
       deleteMusic($(".menu-item"));
-      initPage();
     });
 
     // 1.监听歌曲列表的鼠标移入移出事件
@@ -266,7 +265,9 @@ $(function () {
     });
     // 4.4逻辑上移除
     player.removeMusic(indexArr, function (playingIndex) {
-      if(indexArr.indexOf(playingIndex) > -1){
+      if(!player.musicList.length){
+        initPage();
+      }else if(indexArr.indexOf(playingIndex) > -1){
         changeMusic(player.playingIndex + 1);
       }
     });

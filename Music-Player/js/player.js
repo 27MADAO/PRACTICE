@@ -58,7 +58,7 @@
       //包装成数组处理
       var indexArr = musicIndex instanceof Array ? musicIndex : [musicIndex];
 
-      //如果要全部删除就终止当前播放
+      //如果要全部删除就终止当前的播放
       if(indexArr.length === this.musicList.length){
         this.playMusic(this.playingIndex);
       }
@@ -78,6 +78,9 @@
 
     // 播放进程
     timeUpdate: function (callback) {
+      //为甚paused状态timeUpdate事件还会触发
+      if(this.audio.paused) return;
+
       var _this = this;
       this.audio.ontimeupdate = function () {
         callback && callback(_this.audio.currentTime, _this.audio.duration);
