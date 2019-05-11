@@ -16,7 +16,21 @@ $(function () {
   // 初始化声音进度条长度
   volumeProgress.setProgress(player.playingVolume * $volumeBar.width());
   // 使用jQuery滚动条插件
-  $(".menu-container").mCustomScrollbar();
+  var scrolling = false;
+  $(".menu-box").mCustomScrollbar({
+    theme:"minimal-dark",
+    // callbacks:{
+    //   onScrollStart:function(){
+    //     console.log("Content scrolled...");
+    //   }
+    // }
+    callbacks:{
+      onScroll:function(){
+        console.log("Content scrolled...");
+        scrolling = false;
+      }
+    }
+  });
 
   // 1 加载歌曲列表
   getPlayerList();
@@ -25,15 +39,16 @@ $(function () {
       url: "./source/musiclist.json",
       dataType: "json",
       success: function (data) {
+        // player.setMusicList(data.concat(data).concat(data).concat(data));
+        player.setMusicList(data);
         // 遍历数据，创建音乐列表
-
-        $.each(data, function (i, v) {
-          player.setMusicList(data);
+        $.each(player.musicList, function (i, v) {
           var $menuItem = createMusicItem(i, v);
           // 添加的jQuery滚动条插件为歌曲列表的ul向内多包裹了一层div
           var $menuContainer = $(".menu-box #mCSB_1_container");
           $menuContainer.append($menuItem);
         });
+        // 获取到列表后默认播放第一首
         changeMusic(0);
       },
       error: function (e) {
@@ -123,20 +138,29 @@ $(function () {
       $timeSpan.text(parseTime(currentTime));
 
       // 8.3使当前播放的歌曲滚动到可见区域
-
       var $menuContainer = $(".menu-box #mCSB_1_container");
       var borderTop = - $menuContainer[0].offsetTop;
       var borderBottom = borderTop + $(".menu-box")[0].clientHeight;
       var $playingItem = $(".menu-playing");
       var itemPosition = $playingItem[0].offsetTop;
-      if(itemPosition < borderTop){
-        console.log("在上面呢");
-        //scrollTop -= (borderTop - itemPosition)
-      }else if(itemPosition > borderBottom){
-        console.log("在下面呢");
-        //scrollTop += (itemPosition + $playingItem[0].clientHeight - borderBottom)
-      }else{
-        console.log("可见");
+
+      // 这里可以改成在切换歌曲时做，明天改下
+      if(!scrolling){
+        if(itemPosition < borderTop){
+          console.log("在上面呢");
+          //scrollTop -= (borderTop - itemPosition)
+          //emmm这跟我预想的不太一样，行数据高于可视区时不是应该往上滚动减小scrollTop值吗
+          //我理解的scrollTop是内容区被滚上去的高度（鼠标滚轮向上滚动），如果展示内容也被滚上去了就该让它滚下来才对吧？
+          scrolling = true;
+          $(".menu-box").mCustomScrollbar("scrollTo", "+=" + (borderTop - itemPosition));
+        }else if(itemPosition + $playingItem[0].clientHeight > borderBottom){
+          console.log("在下面呢");
+          //scrollTop += (itemPosition + $playingItem[0].clientHeight - borderBottom)
+          scrolling = true;
+          $(".menu-box").mCustomScrollbar("scrollTo", "-=" + (itemPosition + $playingItem[0].clientHeight - borderBottom));
+        }else{
+          console.log("可见");
+        }
       }
 
       // 8.2歌词同步

@@ -78,11 +78,10 @@
 
     // 播放进程
     timeUpdate: function (callback) {
-      //为甚paused状态timeUpdate事件还会触发
-      if(this.audio.paused) return;
-
       var _this = this;
       this.audio.ontimeupdate = function () {
+        // ↓↓为啥要加这句，说来话长，就不说了。总之是为了删除全部歌曲时停止timeupdate事件
+        if(_this.audio.paused) return;
         callback && callback(_this.audio.currentTime, _this.audio.duration);
       };
       this.audio.onended = function () {
