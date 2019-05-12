@@ -1,5 +1,16 @@
 $(function () {
-  // 0 变量声明
+  //_ 使用jQuery滚动条插件
+  $(".menu-box").mCustomScrollbar({
+    theme:"minimal-dark",
+    callbacks:{
+      //滚动完毕触发
+      onScroll:function(){
+        console.log("Content scrolled...");
+      }
+    }
+  });
+
+  // 0 声明变量
   var $audio = $("audio");
   var player = new Player($audio);
   player.setModeList(["circulate", "random", "one"]);
@@ -15,22 +26,6 @@ $(function () {
   var volumeProgress = new Progress($volumeBar);
   // 初始化声音进度条长度
   volumeProgress.setProgress(player.playingVolume * $volumeBar.width());
-  // 使用jQuery滚动条插件
-  var scrolling = false;
-  $(".menu-box").mCustomScrollbar({
-    theme:"minimal-dark",
-    // callbacks:{
-    //   onScrollStart:function(){
-    //     console.log("Content scrolled...");
-    //   }
-    // }
-    callbacks:{
-      onScroll:function(){
-        console.log("Content scrolled...");
-        scrolling = false;
-      }
-    }
-  });
 
   // 1 加载歌曲列表
   getPlayerList();
@@ -39,12 +34,11 @@ $(function () {
       url: "./source/musiclist.json",
       dataType: "json",
       success: function (data) {
-        // player.setMusicList(data.concat(data).concat(data).concat(data));
         player.setMusicList(data);
         // 遍历数据，创建音乐列表
         $.each(player.musicList, function (i, v) {
           var $menuItem = createMusicItem(i, v);
-          // 添加的jQuery滚动条插件为歌曲列表的ul向内多包裹了一层div
+          // 添加的jQuery滚动条插件为歌曲列表的ul向内多包裹了几层div
           var $menuContainer = $(".menu-box #mCSB_1_container");
           $menuContainer.append($menuItem);
         });
@@ -61,18 +55,18 @@ $(function () {
   initEvents();
   function initEvents() {
     var $menu = $(".menu-box");
-    // 2.监听列表操作的勾选事件
+    // 1.监听列表操作的勾选事件
     $menu.delegate(".song-check i", "click",function () {
       $(this).parents("li").toggleClass("menu-checked ");
       if($(this).parents(".menu-header").length){
-        // 2.1首行勾选决定全部勾选
+        // 1.1首行勾选决定全部勾选
         if($(".menu-header").hasClass("menu-checked")){
           $(".menu-item").addClass("menu-checked");
         }else{
           $(".menu-item").removeClass("menu-checked");
         }
       }else{
-        // 2.2全部勾选则首行勾选
+        // 1.2全部勾选则首行勾选
         var $menuListChecked = $(".menu-header").siblings(".menu-checked ");
         if($menuListChecked.length === $(".menu-item").length){
           $(".menu-header").addClass("menu-checked ")
@@ -82,7 +76,7 @@ $(function () {
       }
     });
 
-    // 12.监听列表操作的删除按钮点击事件
+    // 2.监听列表操作的删除按钮点击事件
     $(".menu-operate-delete").click(function () {
       deleteMusic($(".menu-item.menu-checked"));
     });
@@ -92,7 +86,7 @@ $(function () {
       deleteMusic($(".menu-item"));
     });
 
-    // 1.监听歌曲列表的鼠标移入移出事件
+    // 4.监听歌曲列表的鼠标移入移出事件
     $menu.delegate(".menu-item", "mouseenter", function () {
       $(this).find(".song-operate, .operate-delete").css({display: "block"});
       $(this).find(".song-duration span").css({display: "none"});
@@ -102,68 +96,42 @@ $(function () {
       $(this).find(".song-duration span").css({display: "block"});
     });
 
-    // 3.监听子菜单的播放/暂停按钮点击事件
+    // 5.监听子菜单的播放/暂停按钮点击事件
     $menu.delegate(".operate-play", "click",function () {
       var itemIndex = $(this).parents(".menu-item").index();
       changeMusic(itemIndex - 1);// index()是从1开始
     });
 
-    // 4.监听子菜单的删除按钮点击事件
+    // 6.监听子菜单的删除按钮点击事件
     $menu.delegate(".operate-delete", "click",function () {
       deleteMusic($(this).parents(".menu-item"));
     });
 
-    // 5.监听底部菜单的播放/暂停按钮点击事件
+    // 7.监听底部菜单的播放/暂停按钮点击事件
     $(".playing-pause").click(function () {
       changeMusic(player.playingIndex);
     });
 
-    // 6.监听底部菜单的上一首按钮点击事件
+    // 8.监听底部菜单的上一首按钮点击事件
     $(".playing-pre").click(function () {
       changeMusic(player.playingIndex - 1);
     });
 
-    // 7.监听底部菜单的上一首按钮点击事件
+    // 9.监听底部菜单的上一首按钮点击事件
     $(".playing-next").click(function () {
       changeMusic(player.playingIndex + 1);
     });
 
-    //8.监听播放进行事件
+    // 10.监听播放进行事件
     player.timeUpdate(function (currentTime, duration) {
-      // 8.1时间进度条同步
+      // 10.1时间进度条同步
       if(!timeProgress.moving){
         timeProgress.setProgress(currentTime / duration * 100 + "%");
       }
       var $timeSpan = $(".playing-current");
       $timeSpan.text(parseTime(currentTime));
 
-      // 8.3使当前播放的歌曲滚动到可见区域
-      var $menuContainer = $(".menu-box #mCSB_1_container");
-      var borderTop = - $menuContainer[0].offsetTop;
-      var borderBottom = borderTop + $(".menu-box")[0].clientHeight;
-      var $playingItem = $(".menu-playing");
-      var itemPosition = $playingItem[0].offsetTop;
-
-      // 这里可以改成在切换歌曲时做，明天改下
-      if(!scrolling){
-        if(itemPosition < borderTop){
-          console.log("在上面呢");
-          //scrollTop -= (borderTop - itemPosition)
-          //emmm这跟我预想的不太一样，行数据高于可视区时不是应该往上滚动减小scrollTop值吗
-          //我理解的scrollTop是内容区被滚上去的高度（鼠标滚轮向上滚动），如果展示内容也被滚上去了就该让它滚下来才对吧？
-          scrolling = true;
-          $(".menu-box").mCustomScrollbar("scrollTo", "+=" + (borderTop - itemPosition));
-        }else if(itemPosition + $playingItem[0].clientHeight > borderBottom){
-          console.log("在下面呢");
-          //scrollTop += (itemPosition + $playingItem[0].clientHeight - borderBottom)
-          scrolling = true;
-          $(".menu-box").mCustomScrollbar("scrollTo", "-=" + (itemPosition + $playingItem[0].clientHeight - borderBottom));
-        }else{
-          console.log("可见");
-        }
-      }
-
-      // 8.2歌词同步
+      // 10.2歌词同步
       var lyricIndex = lyric.locateLyric(currentTime);
       if(lyricIndex < 0) return;
       //   高亮当前歌词
@@ -178,8 +146,9 @@ $(function () {
       // 哔了狗，为啥animate方法一直类型报错, 暂时没查出来原因
       // $lyricContainer.stop().animate({top: top}, 100);
 
-      // 8.3播完后根据播放模式切换下一首
+      // 10.3播完后根据播放模式切换下一首
       if(currentTime >= duration){
+        console.log("播完了");
         var nextIndex = {
           circulate: player.playingIndex + 1,
           random: getRandomNext(),
@@ -191,20 +160,20 @@ $(function () {
       }
     });
 
-    // 9.监听底部菜单的歌曲进度条的点击、拖动事件
+    // 11.监听底部菜单的歌曲进度条的点击、拖动事件
     timeProgress.start(function () {
       var length = $(".playing-progress-bar .progress-track").width();
       player.musicSeekTo(length / $timeBar.width());
     });
 
-    // 8.监听底部菜单的播放模式按钮点击事件
+    // 12.监听底部菜单的播放模式按钮点击事件
     $(".playing-operate-mode").click(function () {
       player.changeMode();
       var className = "playing-operate-mode playing-mode-" + player.playingMode;
       $(this).attr("class", className);
     });
 
-    // 10.监听底部菜单的纯净模式按钮点击事件
+    // 13.监听底部菜单的纯净模式按钮点击事件
     $(".playing-operate-only").click(function () {
       $(this).toggleClass("playing-only-on playing-only-off");
       if($(this).hasClass("playing-only-on")){
@@ -218,12 +187,12 @@ $(function () {
       }
     });
 
-    // 10.监听底部菜单的静音按钮点击事件
+    // 14.监听底部菜单的静音按钮点击事件
     $(".playing-operate-volume").click(function () {
       player.volumeSeekTo();
     });
 
-    // 11.监听底部菜单的声音进度条点击、拖动事件
+    // 15.监听底部菜单的声音进度条点击、拖动事件
     volumeProgress.start(function () {
       var length = $(".playing-volume-bar .progress-track").width();
       player.volumeSeekTo( length / $volumeBar.width());
@@ -232,10 +201,12 @@ $(function () {
 
   // 3 定义切换歌曲的方法
   function changeMusic(index) {
-    //切换当前播放曲目
+    console.log(index);
+
+    // 3.1 切换当前播放曲目
     player.playMusic(index);
 
-    //样式上修改当前播放曲目
+    // 3.2 样式上修改当前播放曲目
     // 1.列表中设置当前播放曲目高亮
     $(".menu-item").removeClass("menu-playing");
     var $curMenuItem = $(".menu-item").eq(player.playingIndex);
@@ -261,9 +232,9 @@ $(function () {
     $(".playing-info-singer a").text(music.singer);
     $(".playing-info-album a").text(music.album);
     lyric.loadLyric(music.link_lrc, function (lyricArr) {
-      //清空上一首歌的歌词
+      // 清空上一首歌的歌词
       $lyricContainer.html("");
-      //载入当前播放歌曲的歌词
+      // 载入当前播放歌曲的歌词
       $.each(lyricArr, function (i, v) {
         var $item = $("<p>"+ v +"</p>");
         $lyricContainer.append($item);
@@ -272,6 +243,28 @@ $(function () {
 
     // 5.切换页面背景
     $(".player-mask").css({backgroundImage: "url("+ music.cover +")"});
+
+    // 3.3 使播放的歌曲滚动到列表可见区域
+    var $menuContainer = $(".menu-box #mCSB_1_container");
+    var borderTop = - $menuContainer[0].offsetTop;
+    var borderBottom = borderTop + $(".menu-box")[0].clientHeight;
+    var $playingItem = $(".menu-playing");
+    if(!$playingItem || !$playingItem[0]) return;
+    var itemPosition = $playingItem[0].offsetTop;
+    var itemHeight = $playingItem[0].clientHeight;
+    if(itemPosition < borderTop){
+      console.log("在上面呢");
+      //scrollTop -= (borderTop - itemPosition)
+      //emmm这跟我预想的不太一样，行数据高于可视区时不是应该往上滚动减小scrollTop值吗
+      //我理解的scrollTop是内容区被滚上去的高度（鼠标滚轮向上滚动），如果展示内容也被滚上去了就该让它滚下来才对吧？
+      $(".menu-box").mCustomScrollbar("scrollTo", "+=" + (borderTop - itemPosition));
+    }else if(itemPosition + itemHeight > borderBottom){
+      console.log("在下面呢");
+      //scrollTop += (itemPosition + $playingItem[0].clientHeight - borderBottom)
+      $(".menu-box").mCustomScrollbar("scrollTo", "-=" + (itemPosition + itemHeight - borderBottom));
+    }else{
+      console.log("可见");
+    }
   }
   
   // 4 定义删除歌曲的方法
@@ -297,7 +290,7 @@ $(function () {
     });
   }
 
-  // 4 定义创建音乐条目的方法
+  // 5 定义创建音乐条目的方法
   function createMusicItem(i, v) {
     var $item = $("<li class=\"menu-item\">\n" +
       "          <div class=\"song-check\"><i></i></div>\n" +
@@ -322,38 +315,38 @@ $(function () {
     return $item;
   }
 
-  // 获取随机模式下一首歌曲的索引，不可为当前播放歌曲的索引
+  // 6 定义初始化页面样式的方法
+  function initPage() {
+    // 6.1 复原底部播放按钮
+    $(".playing-pause").removeClass("playing-play");
+
+    // 6.2 清除底部播放信息
+    $(".playing-name").html("^");
+    $(".playing-singer").html("^");
+    $(".playing-duration").html("^");
+
+    // 6.3 复原侧边专辑封面图片
+    $(".playing-info-poster").css({backgroundImage: "url(\"./img/cat.jpg\")"});
+
+    // 6.4 清除侧边歌曲信息
+    $(".playing-info-name a").html("^");
+    $(".playing-info-singer a").html("^");
+    $(".playing-info-album a").html("^");
+    $lyricContainer.html("");
+
+    // 6.5 隐藏不含内容的元素
+    $("a:contains('^'), span:contains('^')").parent().css({display: "none"});
+
+    // 6.6 页面背景恢复默认
+    $(".player-mask").css({backgroundImage: "url(\"./img/cat.jpg\")"});
+  }
+
+  // 7 定义获取随机模式中下一首歌曲索引的方法（规定不可为当前播放歌曲的索引）
   function getRandomNext() {
     var randomNext = Math.floor(Math.random() * player.musicList.length);
     if(randomNext === player.playingIndex){
       randomNext = getRandomNext();
     }
     return randomNext;
-  }
-
-  // 清除所有页面展示
-  function initPage() {
-    // 复原底部按钮
-    $(".playing-pause").removeClass("playing-play");
-
-    // 1.清除底部的歌曲
-    $(".playing-name").html("^");
-    $(".playing-singer").html("^");
-    $(".playing-duration").html("^");
-
-    // 2.侧边专辑封面恢复默认图片
-    $(".playing-info-poster").css({backgroundImage: "url(\"./img/cat.jpg\")"});
-
-    // 4.清空侧边的歌曲信息
-    $(".playing-info-name a").html("^");
-    $(".playing-info-singer a").html("^");
-    $(".playing-info-album a").html("^");
-    $lyricContainer.html("");
-
-    // 4.隐藏不含内容的元素
-    $("a:contains('^'), span:contains('^')").parent().css({display: "none"});
-
-    // 5.页面背景恢复默认
-    $(".player-mask").css({backgroundImage: "url(\"./img/cat.jpg\")"});
   }
 });

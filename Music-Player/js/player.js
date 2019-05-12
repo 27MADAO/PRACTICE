@@ -80,13 +80,12 @@
     timeUpdate: function (callback) {
       var _this = this;
       this.audio.ontimeupdate = function () {
-        // ↓↓为啥要加这句，说来话长，就不说了。总之是为了删除全部歌曲时停止timeupdate事件
-        if(_this.audio.paused) return;
+        if(_this.audio.currentTime >=  _this.audio.duration){
+          _this.setPlaying(false);
+        }
+        console.log(_this.audio.paused);
         callback && callback(_this.audio.currentTime, _this.audio.duration);
       };
-      this.audio.onended = function () {
-        _this.setPlaying(false);
-      }
     },
 
     // 调整播放进度
