@@ -60,7 +60,7 @@
 
       //如果要全部删除就终止当前的播放
       if(indexArr.length === this.musicList.length){
-        this.playMusic(this.playingIndex);
+        this.playing && this.playMusic(this.playingIndex);
       }
 
       var playingIndex = this.playingIndex;
@@ -83,7 +83,6 @@
         if(_this.audio.currentTime >=  _this.audio.duration){
           _this.setPlaying(false);
         }
-        console.log(_this.audio.paused);
         callback && callback(_this.audio.currentTime, _this.audio.duration);
       };
     },

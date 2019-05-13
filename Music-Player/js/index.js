@@ -124,29 +124,7 @@ $(function () {
 
     // 10.监听播放进行事件
     player.timeUpdate(function (currentTime, duration) {
-      // 10.1时间进度条同步
-      if(!timeProgress.moving){
-        timeProgress.setProgress(currentTime / duration * 100 + "%");
-      }
-      var $timeSpan = $(".playing-current");
-      $timeSpan.text(parseTime(currentTime));
-
-      // 10.2歌词同步
-      var lyricIndex = lyric.locateLyric(currentTime);
-      if(lyricIndex < 0) return;
-      //   高亮当前歌词
-      $lyricContainer.children().removeClass("playing-lyric-this");
-      var $curLyric = $lyricContainer.children().eq(lyricIndex);
-      $curLyric.addClass("playing-lyric-this");
-      //   定位当前歌词
-      var boxHeight = $lyricContainer.parent().height();
-      if($curLyric[0].offsetTop <= boxHeight / 2) return;
-      var top = - $curLyric[0].offsetTop + boxHeight / 2 - $curLyric[0].clientHeight / 2;
-      $lyricContainer.css({top: top});
-      // 哔了狗，为啥animate方法一直类型报错, 暂时没查出来原因
-      // $lyricContainer.stop().animate({top: top}, 100);
-
-      // 10.3播完后根据播放模式切换下一首
+      // 10.1 播完后根据播放模式切换下一首
       if(currentTime >= duration){
         console.log("播完了");
         var nextIndex = {
@@ -158,6 +136,30 @@ $(function () {
         musicIndex === player.playingIndex && player.setPlayingIndex(-1);
         changeMusic(musicIndex);
       }
+      if(!player.playing) return;
+
+      // 10.2 时间进度条同步
+      if(!timeProgress.moving){
+        timeProgress.setProgress(currentTime / duration * 100 + "%");
+      }
+      var $timeSpan = $(".playing-current");
+      $timeSpan.text(parseTime(currentTime));
+
+      // 10.3 歌词同步
+      var lyricIndex = lyric.locateLyric(currentTime);
+      if(lyricIndex < 0) return;
+      //   高亮当前歌词
+      $lyricContainer.children().removeClass("playing-lyric-this");
+      var $curLyric = $lyricContainer.children().eq(lyricIndex);
+      $curLyric.addClass("playing-lyric-this");
+      //   定位当前歌词
+      var boxHeight = $lyricContainer.parent().height();
+      if($curLyric[0].offsetTop <= boxHeight / 2) return;
+      var top = - $curLyric[0].offsetTop + boxHeight / 2 - $curLyric[0].clientHeight / 2;
+      // $lyricContainer.css({top: top});
+      // 哔了狗，为啥animate方法一直类型报错，之前还能用，暂时没查出来原因
+      // >>>找到原因了！中间换过一次jQuery引入，本地下载的好像不支持，换回了cdn服务器版本
+      $lyricContainer.stop().animate({top: top}, 100);
     });
 
     // 11.监听底部菜单的歌曲进度条的点击、拖动事件
@@ -201,9 +203,8 @@ $(function () {
 
   // 3 定义切换歌曲的方法
   function changeMusic(index) {
-    console.log(index);
-
     // 3.1 切换当前播放曲目
+    var playingIndex = player.playingIndex;
     player.playMusic(index);
 
     // 3.2 样式上修改当前播放曲目
@@ -219,6 +220,8 @@ $(function () {
       $(".playing-pause").removeClass("playing-play");
     }
 
+    // 如果是对同一首歌曲进行播放/暂停操作，就不需要修改已有的播放信息
+    if(index === playingIndex) return;
     // 3.底部显示当前播放曲目信息等
     var music = player.musicList[player.playingIndex];
 
@@ -231,10 +234,10 @@ $(function () {
     $(".playing-info-name a").text(music.name);
     $(".playing-info-singer a").text(music.singer);
     $(".playing-info-album a").text(music.album);
+    // 清空上一首歌的歌词
+    $lyricContainer.html("");
+    // 载入当前播放歌曲的歌词
     lyric.loadLyric(music.link_lrc, function (lyricArr) {
-      // 清空上一首歌的歌词
-      $lyricContainer.html("");
-      // 载入当前播放歌曲的歌词
       $.each(lyricArr, function (i, v) {
         var $item = $("<p>"+ v +"</p>");
         $lyricContainer.append($item);
@@ -257,6 +260,10 @@ $(function () {
       //scrollTop -= (borderTop - itemPosition)
       //emmm这跟我预想的不太一样，行数据高于可视区时不是应该往上滚动减小scrollTop值吗
       //我理解的scrollTop是内容区被滚上去的高度（鼠标滚轮向上滚动），如果展示内容也被滚上去了就该让它滚下来才对吧？
+      //>>>想起或许是实际作用的元素与我认为的元素不同？
+      //>>>我认为的是内容在进行滚动，所以当要显示的行在已滚上去的部分时，让内容元素scrollTop（高度，非负值）减小
+      //>>>而事实上这是一个伪造的滚动条，内容是在进行定位，scrollTop是内容相对于容器的位置（定位，非正值），所以当
+      //>>>要显示的行在容器上方时，令内容元素定位值增大，向下移动
       $(".menu-box").mCustomScrollbar("scrollTo", "+=" + (borderTop - itemPosition));
     }else if(itemPosition + itemHeight > borderBottom){
       console.log("在下面呢");
@@ -277,13 +284,15 @@ $(function () {
     // 4.2样式上移除
     $item.remove();
     // 4.3更新剩余元素的索引
-    $.each($(".menu-item"), function (i, v) {
+    var $menuItem = $(".menu-item");
+    $menuItem && $.each($menuItem, function (i, v) {
       $(v).find(".song-index span").text(i + 1);
     });
     // 4.4逻辑上移除
     player.removeMusic(indexArr, function (playingIndex) {
       if(!player.musicList.length){
-        initPage();
+         // initPage();
+         initPage2(playingIndex-1, playingIndex);
       }else if(indexArr.indexOf(playingIndex) > -1){
         changeMusic(player.playingIndex + 1);
       }
@@ -339,6 +348,60 @@ $(function () {
 
     // 6.6 页面背景恢复默认
     $(".player-mask").css({backgroundImage: "url(\"./img/cat.jpg\")"});
+  }
+
+  function initPage2(index, playingIndex) {
+    // 3.2 样式上修改当前播放曲目
+    // 1.列表中设置当前播放曲目高亮
+    $(".menu-item").removeClass("menu-playing");
+    var $curMenuItem = $(".menu-item").eq(player.playingIndex);
+    player.playing && $curMenuItem.addClass("menu-playing");
+
+    // 2.底部播放按钮改变
+    if(player.playing){
+      $(".playing-pause").addClass("playing-play");
+    }else {
+      $(".playing-pause").removeClass("playing-play");
+    }
+
+    // 如果是对同一首歌曲进行播放/暂停操作，就不需要修改已有的播放信息
+    if(index === playingIndex) return;
+    // 3.底部显示当前播放曲目信息等
+    var initInfo = {
+      name: "^",
+      singer: "^",
+      album: "^",
+      time: "^",
+      link_url:"^",
+      cover: "./img/cat.jpg",
+      link_lrc: ""
+    };
+    var music = player.musicList[player.playingIndex] || initInfo;
+
+    $(".playing-name").text(music.name);
+    $(".playing-singer").text(music.singer);
+    $(".playing-duration").text(music.time);
+
+    // 4.侧边显示当前播放曲目歌词信息等
+    $(".playing-info-poster").css({backgroundImage: "url("+ music.cover +")"});
+    $(".playing-info-name a").text(music.name);
+    $(".playing-info-singer a").text(music.singer);
+    $(".playing-info-album a").text(music.album);
+    // 清空上一首歌的歌词
+    $lyricContainer.html("");
+    // 载入当前播放歌曲的歌词
+    music.link_lrc && lyric.loadLyric(music.link_lrc, function (lyricArr) {
+      $.each(lyricArr, function (i, v) {
+        var $item = $("<p>"+ v +"</p>");
+        $lyricContainer.append($item);
+      });
+    });
+
+    // 5.切换页面背景
+    $(".player-mask").css({backgroundImage: "url("+ music.cover +")"});
+
+    // 6.隐藏不含内容的元素
+    $("a:contains('^'), span:contains('^')").parent().css({display: "none"});
   }
 
   // 7 定义获取随机模式中下一首歌曲索引的方法（规定不可为当前播放歌曲的索引）

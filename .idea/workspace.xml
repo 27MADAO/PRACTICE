@@ -5,6 +5,8 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Music-Player/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/Music-Player/js/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Music-Player/js/player.js" beforeDir="false" afterPath="$PROJECT_DIR$/Music-Player/js/player.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Music-Player/player.html" beforeDir="false" afterPath="$PROJECT_DIR$/Music-Player/player.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.html" beforeDir="false" afterPath="$PROJECT_DIR$/Music-Player/test/scroll.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -15,30 +17,37 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FavoritesManager">
+    <favorites_list name="_workspace" />
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Music-Player/js/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-194">
-              <caret line="253" column="50" lean-forward="true" selection-start-line="253" selection-start-column="50" selection-end-line="253" selection-end-column="50" />
+            <state relative-caret-position="333">
+              <caret line="294" column="49" lean-forward="true" selection-start-line="294" selection-start-column="49" selection-end-line="294" selection-end-column="49" />
               <folding>
                 <element signature="e#70#217#0" />
-                <element signature="e#959#1601#0" />
-                <element signature="e#8972#9508#0" />
-                <element signature="e#9562#10781#0" />
-                <element signature="e#11069#11735#0" />
-                <element signature="e#11179#11367#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Music-Player/source/musiclist.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="125">
+              <caret line="5" column="20" lean-forward="true" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Music-Player/js/player.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1293">
-              <caret line="85" column="40" selection-start-line="85" selection-start-column="40" selection-end-line="85" selection-end-column="40" />
+            <state relative-caret-position="368">
+              <caret line="62" column="24" selection-start-line="62" selection-start-column="24" selection-end-line="62" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -46,8 +55,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Music-Player/player.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="456">
-              <caret line="40" column="42" lean-forward="true" selection-start-line="40" selection-start-column="42" selection-end-line="40" selection-end-column="42" />
+            <state relative-caret-position="225">
+              <caret line="9" column="46" lean-forward="true" selection-start-line="9" selection-start-column="46" selection-end-line="9" selection-end-column="46" />
               <folding>
                 <element signature="n#header#0;n#body#0;n#html#0;n#!!top" />
                 <element signature="n#main#1;n#body#0;n#html#0;n#!!top" />
@@ -69,8 +78,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Music-Player/js/lyric.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="675">
-              <caret line="27" selection-start-line="27" selection-end-line="27" />
+            <state relative-caret-position="381">
+              <caret line="17" column="24" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -78,8 +87,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Music-Player/js/functions.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="20" selection-start-column="20" selection-end-column="20" />
+            <state relative-caret-position="325">
+              <caret line="13" column="9" selection-start-line="13" selection-start-column="9" selection-end-line="13" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -124,6 +133,8 @@
       <find>menu-box</find>
       <find>changeM</find>
       <find>changeMus</find>
+      <find>delete</find>
+      <find>playing-lyric-this</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -137,14 +148,17 @@
         <option value="$PROJECT_DIR$/Music-Player/js/progress.js" />
         <option value="$PROJECT_DIR$/Music-Player/js/lyric.js" />
         <option value="$PROJECT_DIR$/test.html" />
-        <option value="$PROJECT_DIR$/Music-Player/player.html" />
         <option value="$PROJECT_DIR$/Music-Player/css/page-index.css" />
         <option value="$PROJECT_DIR$/Music-Player/js/player.js" />
+        <option value="$PROJECT_DIR$/Music-Player/test/scroll.html" />
+        <option value="$PROJECT_DIR$/Music-Player/test/animateDemo.html" />
+        <option value="$PROJECT_DIR$/Music-Player/test/animate.html" />
+        <option value="$PROJECT_DIR$/Music-Player/player.html" />
         <option value="$PROJECT_DIR$/Music-Player/js/index.js" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="50" />
     <option name="width" value="1750" />
     <option name="height" value="1030" />
@@ -162,6 +176,35 @@
               <item name="_workspace" type="b2602c69:ProjectViewProjectNode" />
               <item name="_workspace" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="_workspace" type="b2602c69:ProjectViewProjectNode" />
+              <item name="_workspace" type="462c0819:PsiDirectoryNode" />
+              <item name="Music-Player" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="_workspace" type="b2602c69:ProjectViewProjectNode" />
+              <item name="_workspace" type="462c0819:PsiDirectoryNode" />
+              <item name="Music-Player" type="462c0819:PsiDirectoryNode" />
+              <item name="img" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="_workspace" type="b2602c69:ProjectViewProjectNode" />
+              <item name="_workspace" type="462c0819:PsiDirectoryNode" />
+              <item name="Music-Player" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="_workspace" type="b2602c69:ProjectViewProjectNode" />
+              <item name="_workspace" type="462c0819:PsiDirectoryNode" />
+              <item name="Music-Player" type="462c0819:PsiDirectoryNode" />
+              <item name="source" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="_workspace" type="b2602c69:ProjectViewProjectNode" />
+              <item name="_workspace" type="462c0819:PsiDirectoryNode" />
+              <item name="Music-Player" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -178,6 +221,10 @@
     <property name="settings.editor.selected.configurable" value="JavaScript.Libraries" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\FRONT\_workspace\Music-Player\test" />
+      <recent name="E:\FRONT\_workspace\Music-Player\scrollTop" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\FRONT\_workspace\Music-Player\js" />
     </key>
@@ -214,18 +261,20 @@
       <workItem from="1557473627644" duration="9929000" />
       <workItem from="1557581863767" duration="3967000" />
       <workItem from="1557663081678" duration="4889000" />
+      <workItem from="1557731679333" duration="9432000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="70895000" />
+    <option name="totallyTimeSpent" value="80327000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22457068" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49858356" visible="true" weight="0.22457068" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info id="Favorites" order="2" sideWeight="0.50141644" side_tool="true" weight="0.22457068" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3286119" />
       <window_info anchor="bottom" id="Run" order="2" />
@@ -269,31 +318,10 @@
     <entry file="file://$PROJECT_DIR$/Music-Player/img/lnj.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/test.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="35" column="42" selection-start-line="35" selection-start-column="42" selection-end-line="35" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Music-Player/js/progress.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="475">
           <caret line="19" column="38" selection-start-line="19" selection-start-column="38" selection-end-line="19" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Music-Player/js/lyric.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="675">
-          <caret line="27" selection-start-line="27" selection-end-line="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Music-Player/js/functions.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="20" selection-start-column="20" selection-end-column="20" />
         </state>
       </provider>
     </entry>
@@ -304,10 +332,55 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Music-Player/js/player.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="62" column="24" selection-start-line="62" selection-start-column="24" selection-end-line="62" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Music-Player/js/lyric.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="381">
+          <caret line="17" column="24" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Music-Player/js/functions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="13" column="9" selection-start-line="13" selection-start-column="9" selection-end-line="13" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Music-Player/test/scroll.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Music-Player/test/animate.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="13" column="23" lean-forward="true" selection-start-line="13" selection-start-column="23" selection-end-line="13" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Music-Player/test/animateDemo.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="7" selection-start-line="7" selection-end-line="8" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Music-Player/player.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="456">
-          <caret line="40" column="42" lean-forward="true" selection-start-line="40" selection-start-column="42" selection-end-line="40" selection-end-column="42" />
+        <state relative-caret-position="225">
+          <caret line="9" column="46" lean-forward="true" selection-start-line="9" selection-start-column="46" selection-end-line="9" selection-end-column="46" />
           <folding>
             <element signature="n#header#0;n#body#0;n#html#0;n#!!top" />
             <element signature="n#main#1;n#body#0;n#html#0;n#!!top" />
@@ -316,25 +389,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Music-Player/js/index.js">
+    <entry file="file://$PROJECT_DIR$/Music-Player/source/musiclist.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-194">
-          <caret line="253" column="50" lean-forward="true" selection-start-line="253" selection-start-column="50" selection-end-line="253" selection-end-column="50" />
-          <folding>
-            <element signature="e#70#217#0" />
-            <element signature="e#959#1601#0" />
-            <element signature="e#8972#9508#0" />
-            <element signature="e#9562#10781#0" />
-            <element signature="e#11069#11735#0" />
-            <element signature="e#11179#11367#0" />
-          </folding>
+        <state relative-caret-position="125">
+          <caret line="5" column="20" lean-forward="true" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Music-Player/js/player.js">
+    <entry file="file://$PROJECT_DIR$/Music-Player/js/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1293">
-          <caret line="85" column="40" selection-start-line="85" selection-start-column="40" selection-end-line="85" selection-end-column="40" />
+        <state relative-caret-position="333">
+          <caret line="294" column="49" lean-forward="true" selection-start-line="294" selection-start-column="49" selection-end-line="294" selection-end-column="49" />
+          <folding>
+            <element signature="e#70#217#0" />
+          </folding>
         </state>
       </provider>
     </entry>

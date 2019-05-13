@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>animate-jQueryDemo</title>
+  <!--<script src="../js/jquery.min.js"></script>-->
+  <!--↑↑↑知道动画报错的原因了-->
+  <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+  <script>
+    $(function () {
+      $( "#clickme" ).click(function() {
+        $( "#cat" ).animate({
+          opacity: 0.25,
+          left: "+=50",
+          height: "toggle"
+        }, 5000, function() {
+          // Animation complete.
+        });
+      });
+    })
+  </script>
+</head>
+<body>
+  <div id="clickme">
+    Click here
+  </div>
+  <img id="cat" src="../img/cat.jpg" alt="" width="100"
+       style="position: relative; left: 10px;">
+</body>
+</html>
