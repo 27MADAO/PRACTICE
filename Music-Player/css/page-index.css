@@ -319,6 +319,7 @@ main aside a,
 .playing-lyric-box p{
     line-height: 1.5em;
     margin-bottom: 1.2em;
+    border: 1px solid red;
 }
 .playing-lyric-box p[class = playing-lyric-this]{
     color: #419361;

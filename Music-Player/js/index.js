@@ -136,7 +136,7 @@ $(function () {
         musicIndex === player.playingIndex && player.setPlayingIndex(-1);
         changeMusic(musicIndex);
       }
-      if(!player.playing) return;
+      // if(!player.playing) return;
 
       // 10.2 时间进度条同步
       if(!timeProgress.moving){
@@ -154,12 +154,12 @@ $(function () {
       $curLyric.addClass("playing-lyric-this");
       //   定位当前歌词
       var boxHeight = $lyricContainer.parent().height();
-      if($curLyric[0].offsetTop <= boxHeight / 2) return;
+      if($curLyric[0].offsetTop + $curLyric[0].clientHeight / 2 <= boxHeight / 2) return false;
       var top = - $curLyric[0].offsetTop + boxHeight / 2 - $curLyric[0].clientHeight / 2;
-      // $lyricContainer.css({top: top});
+      $lyricContainer.css({top: top}); 
       // 哔了狗，为啥animate方法一直类型报错，之前还能用，暂时没查出来原因
-      // >>>找到原因了！中间换过一次jQuery引入，本地下载的好像不支持，换回了cdn服务器版本
-      $lyricContainer.stop().animate({top: top}, 100);
+      // // >>>找到原因了！中间换过一次jQuery引入，本地下载的好像不支持，换回了cdn服务器版本
+      // $lyricContainer.stop().animate({top: top}, 100);
     });
 
     // 11.监听底部菜单的歌曲进度条的点击、拖动事件
@@ -203,49 +203,13 @@ $(function () {
 
   // 3 定义切换歌曲的方法
   function changeMusic(index) {
-    // 3.1 切换当前播放曲目
     var playingIndex = player.playingIndex;
+
+    // 3.1 切换当前播放曲目
     player.playMusic(index);
 
     // 3.2 样式上修改当前播放曲目
-    // 1.列表中设置当前播放曲目高亮
-    $(".menu-item").removeClass("menu-playing");
-    var $curMenuItem = $(".menu-item").eq(player.playingIndex);
-    player.playing && $curMenuItem.addClass("menu-playing");
-
-    // 2.底部播放按钮改变
-    if(player.playing){
-      $(".playing-pause").addClass("playing-play");
-    }else {
-      $(".playing-pause").removeClass("playing-play");
-    }
-
-    // 如果是对同一首歌曲进行播放/暂停操作，就不需要修改已有的播放信息
-    if(index === playingIndex) return;
-    // 3.底部显示当前播放曲目信息等
-    var music = player.musicList[player.playingIndex];
-
-    $(".playing-name").text(music.name);
-    $(".playing-singer").text(music.singer);
-    $(".playing-duration").text(music.time);
-
-    // 4.侧边显示当前播放曲目歌词信息等
-    $(".playing-info-poster").css({backgroundImage: "url("+ music.cover +")"});
-    $(".playing-info-name a").text(music.name);
-    $(".playing-info-singer a").text(music.singer);
-    $(".playing-info-album a").text(music.album);
-    // 清空上一首歌的歌词
-    $lyricContainer.html("");
-    // 载入当前播放歌曲的歌词
-    lyric.loadLyric(music.link_lrc, function (lyricArr) {
-      $.each(lyricArr, function (i, v) {
-        var $item = $("<p>"+ v +"</p>");
-        $lyricContainer.append($item);
-      });
-    });
-
-    // 5.切换页面背景
-    $(".player-mask").css({backgroundImage: "url("+ music.cover +")"});
+    initPage(index, playingIndex);
 
     // 3.3 使播放的歌曲滚动到列表可见区域
     var $menuContainer = $(".menu-box #mCSB_1_container");
@@ -270,7 +234,7 @@ $(function () {
       //scrollTop += (itemPosition + $playingItem[0].clientHeight - borderBottom)
       $(".menu-box").mCustomScrollbar("scrollTo", "-=" + (itemPosition + itemHeight - borderBottom));
     }else{
-      console.log("可见");
+      // console.log("可见");
     }
   }
   
@@ -291,8 +255,7 @@ $(function () {
     // 4.4逻辑上移除
     player.removeMusic(indexArr, function (playingIndex) {
       if(!player.musicList.length){
-         // initPage();
-         initPage2(playingIndex-1, playingIndex);
+        initPage(playingIndex - 1, playingIndex);
       }else if(indexArr.indexOf(playingIndex) > -1){
         changeMusic(player.playingIndex + 1);
       }
@@ -325,33 +288,7 @@ $(function () {
   }
 
   // 6 定义初始化页面样式的方法
-  function initPage() {
-    // 6.1 复原底部播放按钮
-    $(".playing-pause").removeClass("playing-play");
-
-    // 6.2 清除底部播放信息
-    $(".playing-name").html("^");
-    $(".playing-singer").html("^");
-    $(".playing-duration").html("^");
-
-    // 6.3 复原侧边专辑封面图片
-    $(".playing-info-poster").css({backgroundImage: "url(\"./img/cat.jpg\")"});
-
-    // 6.4 清除侧边歌曲信息
-    $(".playing-info-name a").html("^");
-    $(".playing-info-singer a").html("^");
-    $(".playing-info-album a").html("^");
-    $lyricContainer.html("");
-
-    // 6.5 隐藏不含内容的元素
-    $("a:contains('^'), span:contains('^')").parent().css({display: "none"});
-
-    // 6.6 页面背景恢复默认
-    $(".player-mask").css({backgroundImage: "url(\"./img/cat.jpg\")"});
-  }
-
-  function initPage2(index, playingIndex) {
-    // 3.2 样式上修改当前播放曲目
+  function initPage(index, playingIndex) {
     // 1.列表中设置当前播放曲目高亮
     $(".menu-item").removeClass("menu-playing");
     var $curMenuItem = $(".menu-item").eq(player.playingIndex);
@@ -366,17 +303,10 @@ $(function () {
 
     // 如果是对同一首歌曲进行播放/暂停操作，就不需要修改已有的播放信息
     if(index === playingIndex) return;
+    console.log("切换");
     // 3.底部显示当前播放曲目信息等
-    var initInfo = {
-      name: "^",
-      singer: "^",
-      album: "^",
-      time: "^",
-      link_url:"^",
-      cover: "./img/cat.jpg",
-      link_lrc: ""
-    };
-    var music = player.musicList[player.playingIndex] || initInfo;
+    var defaultInfo = {name: "^", singer: "^", album: "^", time: "^", cover: "./img/cat.jpg", link_lrc: ""};
+    var music = player.musicList[player.playingIndex] || defaultInfo;
 
     $(".playing-name").text(music.name);
     $(".playing-singer").text(music.singer);
