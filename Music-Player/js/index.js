@@ -154,12 +154,15 @@ $(function () {
       $curLyric.addClass("playing-lyric-this");
       //   定位当前歌词
       var boxHeight = $lyricContainer.parent().height();
-      if($curLyric[0].offsetTop + $curLyric[0].clientHeight / 2 <= boxHeight / 2) return false;
-      var top = - $curLyric[0].offsetTop + boxHeight / 2 - $curLyric[0].clientHeight / 2;
-      $lyricContainer.css({top: top}); 
+      var lyricHeight = $curLyric[0].clientHeight;
+      var lyricTop = $curLyric[0].offsetTop;
+      var top = - lyricTop + boxHeight / 2 - lyricHeight / 2;
+      console.log(top);
+      if(top >= 0) return;
+      // $lyricContainer.css({top: top});
       // 哔了狗，为啥animate方法一直类型报错，之前还能用，暂时没查出来原因
       // // >>>找到原因了！中间换过一次jQuery引入，本地下载的好像不支持，换回了cdn服务器版本
-      // $lyricContainer.stop().animate({top: top}, 100);
+      $lyricContainer.stop().animate({top: top}, 100);
     });
 
     // 11.监听底部菜单的歌曲进度条的点击、拖动事件
@@ -187,6 +190,7 @@ $(function () {
         $(".only-off").css({display: "block"});
         $lyricContainer = $(".only-off .playing-lyric");
       }
+      initPage(player.playingIndex - 1, player.playingIndex);
     });
 
     // 14.监听底部菜单的静音按钮点击事件
@@ -317,8 +321,9 @@ $(function () {
     $(".playing-info-name a").text(music.name);
     $(".playing-info-singer a").text(music.singer);
     $(".playing-info-album a").text(music.album);
-    // 清空上一首歌的歌词
+    // 清空上一首歌的歌词与定位
     $lyricContainer.html("");
+    $lyricContainer.css({top: 0});
     // 载入当前播放歌曲的歌词
     music.link_lrc && lyric.loadLyric(music.link_lrc, function (lyricArr) {
       $.each(lyricArr, function (i, v) {
