@@ -39,6 +39,15 @@
     playMusic: function (musicIndex) {
       //处理上一首/下一首传来的musicIndex
       musicIndex = this.musicList.length ? (musicIndex + this.musicList.length) % this.musicList.length : -1;
+
+      // 即使歌单清空，src还保存有地址，所以需要判断停止这个播放，直接清除src会报错
+      // 暂时这么写，应该有其他方法可以改进一下
+      if(musicIndex === -1){
+        this.setPlaying(false);
+        this.audio.pause();
+        return;
+      }
+
       if(this.playingIndex === musicIndex){
         if(this.audio.paused){
           this.audio.play();

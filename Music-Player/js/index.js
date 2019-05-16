@@ -123,6 +123,7 @@ $(function () {
     });
 
     // 10.监听播放进行事件
+    var moving = false;
     player.timeUpdate(function (currentTime, duration) {
       // 10.1 播完后根据播放模式切换下一首
       if(currentTime >= duration){
@@ -136,7 +137,6 @@ $(function () {
         musicIndex === player.playingIndex && player.setPlayingIndex(-1);
         changeMusic(musicIndex);
       }
-      // if(!player.playing) return;
 
       // 10.2 时间进度条同步
       if(!timeProgress.moving){
@@ -151,13 +151,14 @@ $(function () {
       //   高亮当前歌词
       $lyricContainer.children().removeClass("playing-lyric-this");
       var $curLyric = $lyricContainer.children().eq(lyricIndex);
+      if(!$curLyric[0]) return;
       $curLyric.addClass("playing-lyric-this");
       //   定位当前歌词
+      if(moving) return;
       var boxHeight = $lyricContainer.parent().height();
       var lyricHeight = $curLyric[0].clientHeight;
       var lyricTop = $curLyric[0].offsetTop;
       var top = - lyricTop + boxHeight / 2 - lyricHeight / 2;
-      console.log(top);
       if(top >= 0) return;
       // $lyricContainer.css({top: top});
       // 哔了狗，为啥animate方法一直类型报错，之前还能用，暂时没查出来原因
@@ -203,6 +204,28 @@ $(function () {
       var length = $(".playing-volume-bar .progress-track").width();
       player.volumeSeekTo( length / $volumeBar.width());
     }, true);
+
+    // 16.监听歌词拖动播放事件
+    $lyricContainer.mousedown(function (e) {
+      var offsetTop = $lyricContainer[0].offsetTop;
+      var y1, y2;
+      y1 = e.pageY;
+      $("body").mousemove(function (e) {
+        moving = true;
+        y2 = e.pageY;
+        var boxHeight = $lyricContainer.parent()[0].clientHeight;
+        var clientHeight = $lyricContainer[0].clientHeight;
+        var top = offsetTop + (y2 - y1);
+        top = top > 0 ? 0 : - top > clientHeight - boxHeight ? -(clientHeight - boxHeight) : top;
+        $lyricContainer.css({top: top});
+      });
+      $("body").mouseup(function () {
+        $("body").off("mousemove mouseup");
+        setTimeout(function () {
+          moving = false;
+        }, 3000);
+      });
+    });
   }
 
   // 3 定义切换歌曲的方法
@@ -307,9 +330,8 @@ $(function () {
 
     // 如果是对同一首歌曲进行播放/暂停操作，就不需要修改已有的播放信息
     if(index === playingIndex) return;
-    console.log("切换");
     // 3.底部显示当前播放曲目信息等
-    var defaultInfo = {name: "^", singer: "^", album: "^", time: "^", cover: "./img/cat.jpg", link_lrc: ""};
+    var defaultInfo = {name: "^", singer: "^", album: "^", time: "^", cover: "./img/empty_cover.png", link_lrc: ""};
     var music = player.musicList[player.playingIndex] || defaultInfo;
 
     $(".playing-name").text(music.name);
@@ -323,7 +345,8 @@ $(function () {
     $(".playing-info-album a").text(music.album);
     // 清空上一首歌的歌词与定位
     $lyricContainer.html("");
-    $lyricContainer.css({top: 0});
+    $lyricContainer.stop().css({top: 0});
+
     // 载入当前播放歌曲的歌词
     music.link_lrc && lyric.loadLyric(music.link_lrc, function (lyricArr) {
       $.each(lyricArr, function (i, v) {

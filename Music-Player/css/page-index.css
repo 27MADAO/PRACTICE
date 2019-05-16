@@ -301,6 +301,26 @@ aside .playing-lyric-box{
     top: 0;
     left: 0;
 }
+.leap-lyric{
+    width: 100%;
+    height: 1px;
+    background: #000;
+    position: absolute;
+    top: 50%;
+    left: 30px;
+}
+.leap-lyric a{
+    display: block;
+    width: 0;
+    height: 0;
+    border-left: solid 20px #000;
+    border-top: solid 15px transparent;
+    border-right: solid 20px transparent;
+    border-bottom: solid 15px transparent;
+    position: relative;
+    top: -14px;
+    left: -30px;
+}
 .playing-trans{
     width: 30px;
     height: 30px;
