@@ -1,77 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="21ec33df-e132-4ff4-8d2b-ffa368417e40" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/_workspace.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/_workspace.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Music-Player/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Music-Player/css/jquery.mCustomScrollbar.css" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/css/jquery.mCustomScrollbar.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Music-Player/css/page-index.css" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/css/page-index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Music-Player/css/reset.css" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/css/reset.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Music-Player/img/album_cover_player.png" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/img/album_cover_player.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Music-Player/img/cat.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/img/cat.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Music-Player/img/empty.png" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/img/empty.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Music-Player/img/empty_cover.png" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/img/empty_cover.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Music-Player/img/icon_list_menu.png" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/img/icon_list_menu.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Music-Player/img/icon_popup.png" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/img/icon_popup.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Music-Player/img/icon_sprite.png" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/img/icon_sprite.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Music-Player/img/lnj.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/img/lnj.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Music-Player/img/player.png" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/img/player.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Music-Player/img/player_cover.png" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/img/player_cover.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Music-Player/img/player_logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/img/player_logo.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Music-Player/img/wave.gif" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/img/wave.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Music-Player/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Music-Player/js/functions.js" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/js/functions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Music-Player/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/js/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Music-Player/js/jquery.mCustomScrollbar.concat.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/js/jquery.mCustomScrollbar.concat.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Music-Player/js/jquery.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/js/jquery.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Music-Player/js/lyric.js" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/js/lyric.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Music-Player/js/player.js" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/js/player.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Music-Player/js/progress.js" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/js/progress.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Music-Player/player.html" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/player.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Music-Player/source/AslongASLoveMe.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/source/AslongASLoveMe.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Music-Player/source/AslongASLoveMe.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/source/AslongASLoveMe.mp3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Music-Player/source/AslongASLoveMe.txt" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/source/AslongASLoveMe.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Music-Player/source/SomethingJustLikeThis.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/source/SomethingJustLikeThis.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Music-Player/source/SomethingJustLikeThis.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/source/SomethingJustLikeThis.mp3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Music-Player/source/SomethingJustLikeThis.txt" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/source/SomethingJustLikeThis.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Music-Player/source/YourSong.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/source/YourSong.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Music-Player/source/YourSong.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/source/YourSong.mp3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Music-Player/source/YourSong.txt" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/source/YourSong.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Music-Player/source/musiclist.json" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/source/musiclist.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Music-Player/source/凉凉.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/source/凉凉.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Music-Player/source/凉凉.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/source/凉凉.mp3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Music-Player/source/凉凉.txt" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/source/凉凉.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Music-Player/source/告白气球.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/source/告白气球.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Music-Player/source/告白气球.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/source/告白气球.mp3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Music-Player/source/告白气球.txt" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/source/告白气球.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Music-Player/source/小城大事.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/source/小城大事.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Music-Player/source/小城大事.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/source/小城大事.mp3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Music-Player/source/小城大事.txt" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/source/小城大事.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Music-Player/source/广东爱情故事.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/source/广东爱情故事.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Music-Player/source/广东爱情故事.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/source/广东爱情故事.mp3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Music-Player/source/广东爱情故事.txt" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/source/广东爱情故事.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Music-Player/source/我是一个程序员.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/source/我是一个程序员.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Music-Player/source/我是一个程序员.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/source/我是一个程序员.mp3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Music-Player/source/我是一个程序员.txt" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/source/我是一个程序员.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Music-Player/source/演员.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/source/演员.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Music-Player/source/演员.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/source/演员.mp3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Music-Player/source/演员.txt" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/source/演员.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Music-Player/source/百里守约.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/source/百里守约.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Music-Player/source/百里守约.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/source/百里守约.mp3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Music-Player/source/百里守约.txt" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/source/百里守约.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Music-Player/source/社会摇.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/source/社会摇.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Music-Player/source/社会摇.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/source/社会摇.mp3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Music-Player/source/社会摇.txt" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/source/社会摇.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Music-Player/source/说散就散.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/source/说散就散.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Music-Player/source/说散就散.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/source/说散就散.mp3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Music-Player/source/说散就散.txt" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/source/说散就散.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Music-Player/source/输了你赢了世界又如何.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/source/输了你赢了世界又如何.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Music-Player/source/输了你赢了世界又如何.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/source/输了你赢了世界又如何.mp3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Music-Player/source/输了你赢了世界又如何.txt" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/source/输了你赢了世界又如何.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-    </list>
+    <list default="true" id="21ec33df-e132-4ff4-8d2b-ffa368417e40" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -90,8 +20,8 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="75">
-                <caret line="3" column="21" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="21" />
+              <first_editor relative-caret-position="125">
+                <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
               </first_editor>
               <second_editor />
             </state>
@@ -256,16 +186,15 @@
       <workItem from="1558889114482" duration="153000" />
       <workItem from="1558889437966" duration="245000" />
       <workItem from="1558889697817" duration="207000" />
-      <workItem from="1558889997311" duration="706000" />
+      <workItem from="1558889997311" duration="957000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="96316000" />
+    <option name="totallyTimeSpent" value="96567000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49858356" visible="true" weight="0.22457068" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -432,8 +361,8 @@
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="75">
-            <caret line="3" column="21" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="21" />
+          <first_editor relative-caret-position="125">
+            <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
           </first_editor>
           <second_editor />
         </state>
