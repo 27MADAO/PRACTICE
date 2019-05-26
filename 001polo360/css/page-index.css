@@ -1,0 +1,223 @@
+body{
+    background: url("../img/bd-bg.png") repeat-x;
+}
+
+.w{
+    width: 940px;
+    margin: 0 auto;
+}
+
+.header{
+    padding: 37px 0 46px;
+}
+
+.nav{
+    float: right;
+}
+.nav li{
+    float: left;
+    border-left: 1px dashed #d6d6d6;
+    padding: 0 10px 10px;
+    margin-top: 22px;
+}
+.nav a{
+    color: #747474;
+    text-decoration: none;
+    font: bold 14px Georgia;
+}
+.nav p{
+    color: #b7b7b7;
+    font: 11px Tahoma;
+}
+
+.banner{
+    height: 355px;
+    background: url("../img/banner-bg.png") no-repeat bottom center;
+    position: relative;
+}
+.banner ul{
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+}
+.banner li{
+    float: left;
+}
+.banner a{
+    display: block;
+    width: 18px;
+    height: 18px;
+    background: url("../img/sprite.png") no-repeat 0 0;
+}
+.banner a[class="current"]{
+    background: url("../img/sprite.png") no-repeat -27px 0;
+}
+
+.clearfix:after{
+    content: "";
+    display: block;
+    clear: both;
+}
+.content h1{
+    font: bold 24px Georgia;
+    text-align: center;
+    background: url("../img/line.png") no-repeat bottom center;
+    padding: 10px 0 24px;
+    margin-bottom: 30px;
+}
+.content .pl, .content .cs, .content .uc,
+.contact .sc, .contact .co, .contact .nu{
+    width: 300px;
+    float: left;
+    min-height: 1px;
+}
+.content .cs, .contact .co{
+    margin: 0 20px;
+}
+.content h2{
+    font: 21px Georgia;
+    color: #11719e;
+}
+.content p{
+    font: 12px Myriad Pro;
+    color: #8c8c8c;
+}
+.content p[class="text"]{
+    font: 13px Myriad Pro;
+    color: #3e3e3e;
+    margin-left: 4px;
+}
+.content .pic{
+    height: 190px;
+    background: url("../img/img-bg.png") no-repeat;
+    text-align: center;
+    padding-top:12px;
+    margin: 18px 0;
+}
+.content a{
+    display: block;
+    width: 163px;
+    height: 34px;
+    background: url("../img/sprite.png") no-repeat 0 -73px;
+    margin: 20px 0 35px 4px;
+    font: 12px Myriad Pro;
+    color: #016999;
+    line-height: 34px;
+    text-indent: 1em;
+    text-decoration: none;
+}
+
+.contact{
+    background: url("../img/line.png") no-repeat top center;
+    padding-top: 44px;
+}
+.contact h2, .contact h3{
+    font: 18px Myriad Pro;
+    padding-bottom: 6px;
+    border-bottom: 1px dashed #d3d3d3;
+}
+.contact p{
+    font: 12px Myriad Pro;
+    color: #444;
+}
+.sc ul{
+    margin: 6px 0 29px;;
+}
+.sc li{
+    float: left;
+    margin-right: 11px;
+}
+.sc li:last-child{
+    margin-right: 0;
+}
+.sc img{
+    width: 51px;
+}
+.sc>p{
+    margin-top: 9px;
+}
+.sc input, .co input, .co textarea{
+    border: none;
+    padding: 0 10px;
+    margin-top: 15px;
+    box-sizing: border-box;
+}
+.co input:nth-child(2), .co textarea{
+    margin-top: 16px;
+}
+.sc input{
+    margin-top: 12px;
+}
+.sc input, .co input{
+    width: 296px;
+    height: 33px;
+    border: none;
+    background: url("../img/input.png") no-repeat;
+}
+.co textarea{
+    width: 296px;
+    height: 134px;
+    background: url("../img/textarea.png") no-repeat;
+    resize: none;
+}
+.nu li{
+    height: 82px;
+    box-sizing: border-box;
+    padding-top: 15px;
+    border-bottom: 1px dashed #d3d3d3;
+}
+.nu img{
+    float: left;
+    margin-right: 8px;
+}
+.nu p{
+    height: 58px;
+}
+.sc, .co, .nu{
+    height: 345px;
+    padding-bottom: 66px;
+    box-sizing: border-box;
+    position: relative;
+}
+.sc>a, .co>a, .nu>a{
+    display: block;
+    width: 163px;
+    height: 33px;
+    background: url("../img/sprite.png") no-repeat 0 -27px;
+    font: 13px Georgia;
+    color: #fff;
+    text-decoration: none;
+    text-indent: 1em;
+    line-height: 33px;
+    position: absolute;
+    left: 0;
+    bottom: 24px;
+}
+.footer{
+    height: 183px;
+    background: #333;
+    border-top: 6px solid #4c4c4c;
+    padding: 16px 0;
+    box-sizing: border-box;
+}
+.footer .info, .footer a{
+    color: #999;
+    font: 11px/2.2 "Myriad Pro";
+}
+.footer li{
+    float: left;
+}
+.footer a{
+    text-decoration: none;
+    border-right: 1px solid #999;
+    padding: 0 5px 0 4px;
+}
+.footer li:first-child a, .footer .about a:first-child{
+    padding-left: 0;
+}
+.footer li:last-child a, .footer .about a:last-child{
+    border: none;
+}
+.footer .copyright{
+    float: right;
+}

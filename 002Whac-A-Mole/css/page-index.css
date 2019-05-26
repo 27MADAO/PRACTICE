@@ -1,0 +1,105 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.btn{
+    color: #fff;
+    text-decoration: none;
+    display: block;
+}
+.box{
+    width: 320px;
+    height: 480px;
+    background: url("../img/game_bg.jpg") no-repeat;
+    margin: 50px auto;
+    position: relative;
+}
+.mole{
+    position: absolute;
+}
+.score{
+    color: #fff;
+    font-size: 25px;
+    position: absolute;
+    top: 5px;
+    left: 62px;
+}
+.progress{
+    width: 180px;
+    height: 16px;
+    background: url("../img/progress.png") no-repeat;
+    position: absolute;
+    top: 66px;
+    left: 63px;
+}
+.game-start, .game-over, .game-renew{
+    width: 118px;
+    height: 46px;
+    font: 20px/43px "serif";
+    text-align: center;
+    background: #fd4901;
+    border-radius: 20px;
+    position: absolute;
+    bottom: 133px;
+    left: calc((100% - 118px)/2);
+}
+.game-over{
+    bottom: 60px;
+}
+.game-start:hover, .game-over:hover, .game-renew:hover{
+    color: #ccc;
+    background: #cb4709;
+}
+.rule{
+    width: 100%;
+    text-align: center;
+    background: #ccc;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+.rule-open{
+    color: #3e3e3e;
+    font: 14px/20px "serif";
+}
+.rule-close{
+    color: #fd4901;
+    font-weight: bold;
+}
+.mask{
+    background: rgba(0, 0, 0, 0.7);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+    display: none;
+    z-index: 3;
+}
+.rule-mask, .over-mask{
+    padding-top: 80px;
+    list-style: none;
+}
+.rule-mask>li{
+    text-align: center;
+    color: #ddd;
+    line-height: 40px;
+}
+.rule-mask>li:first-child{
+    font-weight: bold;
+}
+.over-text, .over-score{
+    font: italic bold 26px/34px "serif";
+    color: #fff;
+    text-shadow: 3px 3px 0 #ff6729;
+    text-align: center;
+}
+.over-text:after{
+    content: "______________________________";
+    display: block;
+    font-size: 12px;
+    line-height: 50px;
+}
+
+

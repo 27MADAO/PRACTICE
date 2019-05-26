@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>打地鼠</title>
+  <link rel="stylesheet" href="css/page-index.css">
+  <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+  <script src="js/index.js"></script>
+</head>
+<body>
+  <div class="box">
+    <span class="score">0</span>
+    <p class="progress"></p>
+    <a class="game-start btn" href="javascript:;">开始游戏</a>
+    <p class="rule">
+      <a class="rule-open btn" href="javascript:;">游戏规则</a>
+    </p>
+
+    <ul class="rule-mask mask">
+      <li>游戏规则:</li>
+      <li>1.初始进度条60s</li>
+      <li>2.击中灰太狼，加10分，进度条加1秒</li>
+      <li>3.击中小灰灰，扣10分，进度条扣1秒</li>
+      <li>4.分数为0，或进度条结束，则游戏结束</li>
+      <li><a class="rule-close btn" href="javascript:;">关闭</a></li>
+    </ul>
+
+    <ul class="over-mask mask">
+      <li class="over-text">GAME OVER</li>
+      <li class="over-score">得分：<span></span></li>
+      <li><a class="game-over btn" href="javascript:;">结束游戏</a></li>
+      <li><a class="game-renew btn" href="javascript:;">重新开始</a></li>
+    </ul>
+  </div>
+</body>
+</html>

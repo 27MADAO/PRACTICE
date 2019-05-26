@@ -1,3 +1,5 @@
-_workspace
+#_workspace
 
-Music-Player仿QQ音乐播放器的播放页面
+###  001 静态页面基础练习, UI设计图转成静态页面
+###  002 jQuery练习，简单的打地鼠小游戏
+###  003 页面+jQuery练习，仿QQ音乐的播放页面

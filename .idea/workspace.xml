@@ -2,8 +2,75 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="21ec33df-e132-4ff4-8d2b-ffa368417e40" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Music-Player/js/functions.js" beforeDir="false" afterPath="$PROJECT_DIR$/Music-Player/js/functions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Music-Player/js/lyric.js" beforeDir="false" afterPath="$PROJECT_DIR$/Music-Player/js/lyric.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/_workspace.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/_workspace.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Music-Player/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Music-Player/css/jquery.mCustomScrollbar.css" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/css/jquery.mCustomScrollbar.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Music-Player/css/page-index.css" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/css/page-index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Music-Player/css/reset.css" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/css/reset.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Music-Player/img/album_cover_player.png" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/img/album_cover_player.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Music-Player/img/cat.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/img/cat.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Music-Player/img/empty.png" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/img/empty.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Music-Player/img/empty_cover.png" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/img/empty_cover.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Music-Player/img/icon_list_menu.png" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/img/icon_list_menu.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Music-Player/img/icon_popup.png" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/img/icon_popup.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Music-Player/img/icon_sprite.png" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/img/icon_sprite.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Music-Player/img/lnj.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/img/lnj.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Music-Player/img/player.png" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/img/player.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Music-Player/img/player_cover.png" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/img/player_cover.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Music-Player/img/player_logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/img/player_logo.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Music-Player/img/wave.gif" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/img/wave.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Music-Player/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Music-Player/js/functions.js" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/js/functions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Music-Player/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/js/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Music-Player/js/jquery.mCustomScrollbar.concat.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/js/jquery.mCustomScrollbar.concat.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Music-Player/js/jquery.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/js/jquery.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Music-Player/js/lyric.js" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/js/lyric.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Music-Player/js/player.js" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/js/player.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Music-Player/js/progress.js" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/js/progress.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Music-Player/player.html" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/player.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Music-Player/source/AslongASLoveMe.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/source/AslongASLoveMe.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Music-Player/source/AslongASLoveMe.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/source/AslongASLoveMe.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Music-Player/source/AslongASLoveMe.txt" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/source/AslongASLoveMe.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Music-Player/source/SomethingJustLikeThis.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/source/SomethingJustLikeThis.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Music-Player/source/SomethingJustLikeThis.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/source/SomethingJustLikeThis.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Music-Player/source/SomethingJustLikeThis.txt" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/source/SomethingJustLikeThis.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Music-Player/source/YourSong.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/source/YourSong.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Music-Player/source/YourSong.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/source/YourSong.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Music-Player/source/YourSong.txt" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/source/YourSong.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Music-Player/source/musiclist.json" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/source/musiclist.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Music-Player/source/凉凉.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/source/凉凉.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Music-Player/source/凉凉.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/source/凉凉.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Music-Player/source/凉凉.txt" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/source/凉凉.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Music-Player/source/告白气球.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/source/告白气球.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Music-Player/source/告白气球.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/source/告白气球.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Music-Player/source/告白气球.txt" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/source/告白气球.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Music-Player/source/小城大事.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/source/小城大事.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Music-Player/source/小城大事.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/source/小城大事.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Music-Player/source/小城大事.txt" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/source/小城大事.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Music-Player/source/广东爱情故事.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/source/广东爱情故事.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Music-Player/source/广东爱情故事.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/source/广东爱情故事.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Music-Player/source/广东爱情故事.txt" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/source/广东爱情故事.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Music-Player/source/我是一个程序员.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/source/我是一个程序员.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Music-Player/source/我是一个程序员.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/source/我是一个程序员.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Music-Player/source/我是一个程序员.txt" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/source/我是一个程序员.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Music-Player/source/演员.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/source/演员.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Music-Player/source/演员.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/source/演员.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Music-Player/source/演员.txt" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/source/演员.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Music-Player/source/百里守约.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/source/百里守约.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Music-Player/source/百里守约.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/source/百里守约.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Music-Player/source/百里守约.txt" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/source/百里守约.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Music-Player/source/社会摇.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/source/社会摇.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Music-Player/source/社会摇.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/source/社会摇.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Music-Player/source/社会摇.txt" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/source/社会摇.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Music-Player/source/说散就散.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/source/说散就散.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Music-Player/source/说散就散.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/source/说散就散.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Music-Player/source/说散就散.txt" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/source/说散就散.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Music-Player/source/输了你赢了世界又如何.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/source/输了你赢了世界又如何.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Music-Player/source/输了你赢了世界又如何.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/source/输了你赢了世界又如何.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Music-Player/source/输了你赢了世界又如何.txt" beforeDir="false" afterPath="$PROJECT_DIR$/003Music-Player/source/输了你赢了世界又如何.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -19,20 +86,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Music-Player/js/lyric.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1100">
-              <caret line="44" column="34" lean-forward="true" selection-start-line="44" selection-start-column="34" selection-end-line="44" selection-end-column="34" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Music-Player/js/functions.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="275">
-              <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="75">
+                <caret line="3" column="21" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="21" />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -99,6 +160,12 @@
         <option value="$PROJECT_DIR$/Music-Player/player.html" />
         <option value="$PROJECT_DIR$/Music-Player/js/lyric.js" />
         <option value="$PROJECT_DIR$/Music-Player/js/functions.js" />
+        <option value="$PROJECT_DIR$/polo360/index.html" />
+        <option value="$PROJECT_DIR$/polo360/css/page-index.css" />
+        <option value="$PROJECT_DIR$/Whac-A-Mole/css/page-index.css" />
+        <option value="$PROJECT_DIR$/Whac-A-Mole/index.html" />
+        <option value="$PROJECT_DIR$/Whac-A-Mole/js/index.js" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -113,7 +180,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -121,21 +187,11 @@
               <item name="_workspace" type="b2602c69:ProjectViewProjectNode" />
               <item name="_workspace" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="_workspace" type="b2602c69:ProjectViewProjectNode" />
-              <item name="_workspace" type="462c0819:PsiDirectoryNode" />
-              <item name="Music-Player" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="_workspace" type="b2602c69:ProjectViewProjectNode" />
-              <item name="_workspace" type="462c0819:PsiDirectoryNode" />
-              <item name="Music-Player" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -195,14 +251,21 @@
       <workItem from="1557992413812" duration="8268000" />
       <workItem from="1558002516642" duration="932000" />
       <workItem from="1558105074982" duration="177000" />
+      <workItem from="1558625108925" duration="1105000" />
+      <workItem from="1558712588569" duration="129000" />
+      <workItem from="1558889114482" duration="153000" />
+      <workItem from="1558889437966" duration="245000" />
+      <workItem from="1558889697817" duration="207000" />
+      <workItem from="1558889997311" duration="706000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="93771000" />
+    <option name="totallyTimeSpent" value="96316000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49858356" visible="true" weight="0.22457068" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -227,17 +290,14 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Music-Player/js/jquery.min.js">
+    <entry file="file://$PROJECT_DIR$/003Music-Player/js/jquery.min.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
           <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Music-Player/index.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Music-Player/source/凉凉.txt">
+    <entry file="file://$PROJECT_DIR$/003Music-Player/source/凉凉.txt">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/javascript/extLibs/http_cdn.staticfile.org_jquery_1.10.2_jquery.js">
@@ -247,27 +307,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Music-Player/img/lnj.jpg">
+    <entry file="file://$PROJECT_DIR$/003Music-Player/img/lnj.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="file://$PROJECT_DIR$/Music-Player/test/scroll.html" />
     <entry file="file://$PROJECT_DIR$/Music-Player/test/animate.html" />
     <entry file="file://$PROJECT_DIR$/Music-Player/test/animateDemo.html" />
     <entry file="file://$PROJECT_DIR$/Music-Player/test/eleOrCss.html" />
-    <entry file="file://$PROJECT_DIR$/Music-Player/img/empty_cover.png">
+    <entry file="file://$PROJECT_DIR$/003Music-Player/img/empty_cover.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/Music-Player/img/empty.png">
+    <entry file="file://$PROJECT_DIR$/003Music-Player/img/empty.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/Music-Player/css/page-index.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="500">
-          <caret line="321" column="12" selection-start-line="321" selection-start-column="12" selection-end-line="321" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Music-Player/js/index.js">
+    <entry file="file://$PROJECT_DIR$/003Music-Player/js/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4575">
           <caret line="213" column="22" selection-start-line="213" selection-start-column="22" selection-end-line="213" selection-end-column="22" />
@@ -279,10 +332,80 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Music-Player/player.html">
+    <entry file="file://$PROJECT_DIR$/003Music-Player/source/musiclist.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1525">
-          <caret line="70" column="41" selection-start-line="70" selection-start-column="41" selection-end-line="70" selection-end-column="41" />
+        <state relative-caret-position="125">
+          <caret line="5" column="20" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/003Music-Player/js/progress.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="475">
+          <caret line="58" selection-start-line="58" selection-end-line="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/003Music-Player/js/player.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1150">
+          <caret line="46" selection-start-line="46" selection-end-line="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/003Music-Player/js/functions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="8" column="3" lean-forward="true" selection-start-line="8" selection-start-column="3" selection-end-line="8" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/003Music-Player/js/lyric.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="606">
+          <caret line="44" column="34" selection-start-line="44" selection-start-column="34" selection-end-line="44" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/003Music-Player/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="7" column="25" lean-forward="true" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/001polo360/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="5" column="46" lean-forward="true" selection-start-line="5" selection-start-column="46" selection-end-line="5" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/001polo360/css/page-index.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="656">
+          <caret line="220" column="19" lean-forward="true" selection-start-line="220" selection-start-column="19" selection-end-line="220" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/003Music-Player/css/page-index.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="9" column="18" lean-forward="true" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/002Whac-A-Mole/js/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="99" column="34" lean-forward="true" selection-start-line="99" selection-start-column="34" selection-end-line="99" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/003Music-Player/player.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="11" column="41" lean-forward="true" selection-start-line="11" selection-start-column="41" selection-end-line="11" selection-end-column="41" />
           <folding>
             <element signature="n#header#0;n#body#0;n#html#0;n#!!top" />
             <element signature="n#main#1;n#body#0;n#html#0;n#!!top" />
@@ -292,48 +415,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/002Whac-A-Mole/css/page-index.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="24" column="15" lean-forward="true" selection-start-line="24" selection-start-column="15" selection-end-line="24" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/002Whac-A-Mole/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="7" column="37" selection-start-line="7" selection-start-column="37" selection-end-line="7" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="25">
-            <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+          <first_editor relative-caret-position="75">
+            <caret line="3" column="21" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="21" />
           </first_editor>
           <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Music-Player/source/musiclist.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="5" column="20" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Music-Player/js/progress.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="58" selection-start-line="58" selection-end-line="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Music-Player/js/player.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1150">
-          <caret line="46" selection-start-line="46" selection-end-line="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Music-Player/js/lyric.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1100">
-          <caret line="44" column="34" lean-forward="true" selection-start-line="44" selection-start-column="34" selection-end-line="44" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Music-Player/js/functions.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
         </state>
       </provider>
     </entry>
